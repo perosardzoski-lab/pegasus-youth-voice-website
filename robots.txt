@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Development copy: remove this restriction once approved and published.

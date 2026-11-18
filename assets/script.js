@@ -1,0 +1,1 @@
+document.querySelectorAll('.mobile-toggle').forEach(b=>b.addEventListener('click',()=>{const n=document.getElementById('primary-navigation');const open=n.classList.toggle('open');b.setAttribute('aria-expanded',String(open))}));
