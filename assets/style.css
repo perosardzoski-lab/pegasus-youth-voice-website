@@ -92,3 +92,8 @@ body.pyv-v5-design{color:#183D5C;background:#fff}
 /* Contrast fix: keep heading and kicker legible on the dark collaboration banner. */
 .section .partner-banner h2{color:#fff}
 .section .partner-banner .kicker{color:#BCEBE9}
+
+/* Approved V7 homepage enhancement: subdued, responsive youth collaboration illustration. */
+.youth-voices-footer{background:#fff;overflow:hidden;line-height:0}
+.youth-voices-footer img{display:block;width:100%;max-width:1600px;height:clamp(170px,27vw,350px);object-fit:cover;object-position:center 45%;margin:0 auto;opacity:.72}
+@media(max-width:650px){.youth-voices-footer img{height:190px;object-position:center 45%;opacity:.78}}
