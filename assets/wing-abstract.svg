@@ -5,46 +5,46 @@
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
 
- <radialGradient id="wind-halo">
-  <stop offset="0" stop-color="#F4AF2F" stop-opacity=".27"/>
-  <stop offset=".4" stop-color="#F4AF2F" stop-opacity=".12"/>
-  <stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/>
- </radialGradient>
- <radialGradient id="trail-opacity">
-  <stop offset="0" stop-color="white"/>
-  <stop offset=".22" stop-color="white" stop-opacity=".98"/>
-  <stop offset=".55" stop-color="white" stop-opacity=".66"/>
-  <stop offset="1" stop-color="white" stop-opacity="0"/>
- </radialGradient>
- <mask id="trail-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="600" style="mask-type:alpha">
-  <circle r="195" fill="url(#trail-opacity)">
-    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyPoints="0;.16;.37;.57;.79;1" keyTimes="0;.18;.39;.6;.8;1" keySplines=".4 0 .6 1;.3 0 .7 1;.42 0 .58 1;.28 0 .72 1;.42 0 .58 1" path="M621 111 C597 56 521 43 456 69 C352 20 236 53 158 126 C113 167 113 239 145 293 C117 354 168 445 249 488 C316 552 429 556 515 506 C617 479 667 399 649 314 C674 235 660 166 621 111 Z"/>
-  </circle>
- </mask>
+<!-- The trail has a continuous translucent core and fades at the moving head/tail. -->
+<radialGradient id="wind-glow">
+ <stop stop-color="#F4AF2F" stop-opacity=".24"/>
+ <stop offset=".4" stop-color="#F4AF2F" stop-opacity=".10"/>
+ <stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="trail-falloff">
+ <stop offset="0" stop-color="white"/>
+ <stop offset=".14" stop-color="white" stop-opacity=".96"/>
+ <stop offset=".48" stop-color="white" stop-opacity=".58"/>
+ <stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<mask id="moving-trail-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="600" style="mask-type:alpha">
+ <circle r="173" fill="url(#trail-falloff)">
+  <animateMotion path="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" keyPoints="0;.18;.38;.57;.78;1" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+ </circle>
+</mask>
 </defs>
 <style>
-/* Expressive Flight: broad wind current, coordinated feather response. */
-.feather{transform-box:fill-box;animation:flight-response 12s ease-in-out infinite}
+/* Expressive Flight 2: wind-responsive staggered movement; exact V7 paths unchanged. */
+.feather{transform-box:view-box;animation:wind-feather 12s cubic-bezier(.42,0,.58,1) infinite}
 .feather--blue{transform-origin:173px 99px;animation-delay:0s}
-.feather--teal{transform-origin:167px 222px;animation-delay:-.36s}
-.feather--purple{transform-origin:209px 344px;animation-delay:-.72s}
-.feather--gold{transform-origin:292px 469px;animation-delay:-1.08s}
-@keyframes flight-response{
-  0%,100%{transform:translate(0,0) rotate(0deg)}
-  12%{transform:translate(0,-2px) rotate(-.65deg)}
-  23%{transform:translate(2px,-7px) rotate(3.6deg)}
-  34%{transform:translate(1px,-4px) rotate(1.3deg)}
-  46%{transform:translate(0,1px) rotate(-1deg)}
-  60%{transform:translate(2px,-8px) rotate(4deg)}
-  75%{transform:translate(0,-3px) rotate(1deg)}
-  88%{transform:translate(0,1px) rotate(-.7deg)}
+.feather--teal{transform-origin:167px 222px;animation-delay:-.28s}
+.feather--purple{transform-origin:209px 344px;animation-delay:-.56s}
+.feather--gold{transform-origin:292px 469px;animation-delay:-.84s}
+@keyframes wind-feather{
+  0%,100%{transform:rotate(0deg) translateY(0)}
+  12%{transform:rotate(-.6deg) translateY(-1px)}
+  27%{transform:rotate(2.8deg) translateY(-5px)}
+  44%{transform:rotate(.3deg) translateY(-1px)}
+  58%{transform:rotate(-.9deg) translateY(1px)}
+  72%{transform:rotate(2deg) translateY(-4px)}
+  87%{transform:rotate(.25deg) translateY(-1px)}
 }
-.wind-current{display:inline}
-.wind-still{display:none}
+.wind-moving{display:inline}
+.wind-static{display:none}
 @media(prefers-reduced-motion:reduce){
-  .feather{animation:none!important;transform:none!important}
-  .wind-current{display:none!important}
-  .wind-still{display:inline!important}
+ .feather{animation:none!important;transform:none!important}
+ .wind-moving{display:none!important}
+ .wind-static{display:inline!important}
 }
 </style>
 <path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
@@ -52,26 +52,25 @@
 <path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
 <path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
 
-<g class="wind-current" aria-hidden="true">
-  <!-- A continuous stroke, masked by a travelling radial falloff; no dashed fragments. -->
-  <g mask="url(#trail-fade)">
-   <path d="M621 111 C597 56 521 43 456 69 C352 20 236 53 158 126 C113 167 113 239 145 293 C117 354 168 445 249 488 C316 552 429 556 515 506 C617 479 667 399 649 314 C674 235 660 166 621 111 Z" pathLength="1000" fill="none" stroke="#A3D9E4" stroke-opacity=".32" stroke-width="6" stroke-linecap="round" stroke-dasharray="175 825">
-    <animate attributeName="stroke-dashoffset" values="175;15;-195;-395;-615;-825" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.39;.6;.8;1" keySplines=".4 0 .6 1;.3 0 .7 1;.42 0 .58 1;.28 0 .72 1;.42 0 .58 1"/>
-   </path>
-   <path d="M621 111 C597 56 521 43 456 69 C352 20 236 53 158 126 C113 167 113 239 145 293 C117 354 168 445 249 488 C316 552 429 556 515 506 C617 479 667 399 649 314 C674 235 660 166 621 111 Z" pathLength="1000" fill="none" stroke="#59AFC7" stroke-opacity=".85" stroke-width="2.35" stroke-linecap="round" stroke-dasharray="175 825">
-    <animate attributeName="stroke-dashoffset" values="175;15;-195;-395;-615;-825" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.39;.6;.8;1" keySplines=".4 0 .6 1;.3 0 .7 1;.42 0 .58 1;.28 0 .72 1;.42 0 .58 1"/>
-   </path>
-  </g>
-  <g>
-   <circle r="17" fill="url(#wind-halo)"/>
-   <circle r="4.8" fill="#F4AF2F"/>
-   <circle r="1.35" fill="#FFF3C9" opacity=".9"/>
-   <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyPoints="0;.16;.37;.57;.79;1" keyTimes="0;.18;.39;.6;.8;1" keySplines=".4 0 .6 1;.3 0 .7 1;.42 0 .58 1;.28 0 .72 1;.42 0 .58 1" path="M621 111 C597 56 521 43 456 69 C352 20 236 53 158 126 C113 167 113 239 145 293 C117 354 168 445 249 488 C316 552 429 556 515 506 C617 479 667 399 649 314 C674 235 660 166 621 111 Z"/>
-  </g>
+<g class="wind-moving" aria-hidden="true">
+ <g mask="url(#moving-trail-mask)">
+  <!-- 125 normalized units of flowing, unbroken, trailing air current. -->
+  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#A2D3DE" stroke-opacity=".23" stroke-width="4.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
+   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+  </path>
+  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#419CB8" stroke-opacity=".76" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
+   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+  </path>
+ </g>
+ <g>
+  <circle r="16" fill="url(#wind-glow)"/>
+  <circle r="4.5" fill="#F4AF2F"/>
+  <circle r="1.2" fill="#FFF5D6" opacity=".85"/>
+  <animateMotion path="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" keyPoints="0;.18;.38;.57;.78;1" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+ </g>
 </g>
-<g class="wind-still" aria-hidden="true">
+<g class="wind-static" aria-hidden="true">
  <path d="M544 160 C568 135 590 115 619 102" stroke="#A9D9DF" stroke-width="2" stroke-linecap="round"/>
  <circle cx="627" cy="98" r="4" fill="#F4AF2F"/>
-</g>
-<circle cx="568" cy="493" r="3" fill="#68BFC5"/>
+</g><circle cx="568" cy="493" r="3" fill="#68BFC5"/>
 </svg>
