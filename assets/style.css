@@ -97,3 +97,33 @@ body.pyv-v5-design{color:#183D5C;background:#fff}
 .youth-voices-footer{background:#fff;overflow:hidden;line-height:0}
 .youth-voices-footer img{display:block;width:100%;max-width:1600px;height:clamp(170px,27vw,350px);object-fit:cover;object-position:center 45%;margin:0 auto;opacity:.72}
 @media(max-width:650px){.youth-voices-footer img{height:190px;object-position:center 45%;opacity:.78}}
+
+/* V7 motion preview — existing layout, text, palette and graphics preserved. */
+.motion-home .hero h1 span{animation:v7-tagline-in .78s cubic-bezier(.2,.8,.2,1) both}
+.motion-home .hero h1 span:nth-child(2){animation-delay:.18s}
+.motion-home .hero h1 span:nth-child(3){animation-delay:.36s}
+@keyframes v7-tagline-in{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.motion-home .hero .lead,.motion-home .hero .hero-prompt,.motion-home .hero .actions{animation:v7-tagline-in .85s ease-out .54s both}
+/* Scroll reveals apply only when JavaScript successfully registers an observer. */
+.motion-ready .motion-home .pillar.motion-reveal,
+.motion-ready .motion-home .statement.motion-reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,.7,.24,1)}
+.motion-ready .motion-home .pillar.motion-reveal.is-visible,
+.motion-ready .motion-home .statement.motion-reveal.is-visible{opacity:1;transform:translateY(0)}
+.motion-home .pillar,.motion-home .statement{transition:border-color .22s ease,box-shadow .22s ease}
+@media(hover:hover) and (pointer:fine){.motion-home .pillar:hover{border-color:#A1CCD9;box-shadow:0 9px 24px rgba(15,94,145,.055)}}
+.motion-ready .motion-home .youth-voices-footer.motion-reveal img{opacity:0;transform:translateY(12px);transition:opacity 1.35s ease,transform 1.35s ease}
+.motion-ready .motion-home .youth-voices-footer.motion-reveal.is-visible img{opacity:.72;transform:translateY(0)}
+/* Navigation and calls-to-action: feedback only on interaction. */
+.nav>a{position:relative;transition:color .2s ease}
+.nav>a:not([aria-current])::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:#20A9A2;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+@media(hover:hover) and (pointer:fine){.nav>a:not([aria-current]):hover::after{transform:scaleX(1)}}
+.btn{transition:background-color .22s ease,color .22s ease,border-color .22s ease,transform .22s ease}
+@media(hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-2px)}}
+.btn:active{transform:translateY(0)}
+@media(max-width:650px){.motion-ready .motion-home .youth-voices-footer.motion-reveal.is-visible img{opacity:.78}}
+@media(prefers-reduced-motion:reduce){
+ .motion-home .hero h1 span,.motion-home .hero .lead,.motion-home .hero .hero-prompt,.motion-home .hero .actions{animation:none!important}
+ .motion-ready .motion-home .motion-reveal,.motion-ready .motion-home .youth-voices-footer.motion-reveal img{opacity:1!important;transform:none!important;transition:none!important}
+ .motion-home .youth-voices-footer img{opacity:.72!important}
+ .btn,.nav>a,.nav>a::after{transition:none!important}
+}
