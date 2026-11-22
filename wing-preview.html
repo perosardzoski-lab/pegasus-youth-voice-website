@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pegasus Youth Voice · Expressive Flight — Animation Review</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#fafbff;color:#25234f;min-height:100vh}
+main{max-width:1080px;margin:auto;padding:clamp(18px,4vw,52px)}
+h1{font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-.035em;margin:0 0 .45rem}
+p{line-height:1.65;color:#54546a}
+.stage{background:#fff;border:1px solid #e7e9f1;border-radius:22px;min-height:460px;display:grid;place-items:center;overflow:hidden;margin-top:24px;box-shadow:0 16px 48px #27335f0b}
+.stage object{display:block;width:min(100%,780px);aspect-ratio:6/5}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button{cursor:pointer;border:1px solid #c9dce6;border-radius:999px;padding:11px 18px;background:#fff;color:#164d66;font:inherit;font-weight:600}
+button:hover{background:#eff7f9}
+.note{font-size:.9rem}
+@media(max-width:600px){.stage{min-height:300px}.stage object{width:100%}}
+</style></head>
+<body><main>
+<p class="note">PEGASUS YOUTH VOICE · VERSION 7 · DESIGN PREVIEW ONLY</p>
+<h1>Expressive Flight — refined wind animation</h1>
+<p>Watch the gold dot move in an asymmetric 12-second orbit. A fine blue current follows and fades; the four original Pegasus feathers respond in sequence. This page exists only in the development branch.</p>
+<div class="stage"><object id="wing" type="image/svg+xml" data="./assets/wing-abstract.svg" role="img" aria-label="Animated Pegasus wing with wind guided gold dot and fading blue trail">Animated Pegasus wing preview. Your browser may not support SVG animation.</object></div>
+<div class="row"><button id="replay" type="button">↻ Restart animation</button><span class="note">The animation is automatically reduced if your device requests reduced motion.</span></div>
+<p class="note"><strong>Review status:</strong> not merged. Production site remains unchanged.</p>
+<script>document.getElementById("replay").addEventListener("click",()=>{const o=document.getElementById("wing");o.data="./assets/wing-abstract.svg?restart="+Date.now()});</script>
+</main></body></html>
