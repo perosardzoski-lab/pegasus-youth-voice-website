@@ -6,36 +6,26 @@
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
 </defs>
 <style>
-/* Refined wing motion: anchored feathers, a travelling ripple, no layout shift. */
-.feather{
-  transform-box:view-box;
-  animation:feather-ripple 7.2s cubic-bezier(.45,0,.55,1) infinite;
+/* A quiet, staggered feather wave. The original V7 geometry is unchanged. */
+.feather{transform-box:fill-box;transform-origin:20% 22%;animation:feather-breathe 6.4s ease-in-out infinite}
+.feather--blue{animation-delay:0s}
+.feather--teal{animation-delay:-.42s}
+.feather--purple{animation-delay:-.84s}
+.feather--gold{animation-delay:-1.26s}
+.flight-guide{transform-box:fill-box;transform-origin:10% 80%;animation:guide-sweep 6.4s ease-in-out infinite}
+@keyframes feather-breathe{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  24%{transform:translate(0,-2px) rotate(-.8deg)}
+  52%{transform:translate(2px,-6px) rotate(2.8deg)}
+  77%{transform:translate(0,-1px) rotate(-.6deg)}
 }
-.feather--blue{transform-origin:173px 99px;animation-delay:0s}
-.feather--teal{transform-origin:167px 222px;animation-delay:-.38s}
-.feather--purple{transform-origin:209px 344px;animation-delay:-.76s}
-.feather--gold{transform-origin:292px 469px;animation-delay:-1.14s}
-.flight-guide{
-  transform-box:view-box;
-  transform-origin:544px 160px;
-  animation:guide-arc 7.2s ease-in-out infinite;
+@keyframes guide-sweep{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  32%{transform:translate(3px,-3px) rotate(-2deg)}
+  57%{transform:translate(9px,-8px) rotate(-5deg)}
+  83%{transform:translate(2px,-2px) rotate(-1deg)}
 }
-@keyframes feather-ripple{
-  0%,100%{transform:rotate(0deg) scale(1,1)}
-  19%{transform:rotate(-.65deg) scale(1,1.005)}
-  44%{transform:rotate(1.65deg) scale(1,1.017)}
-  62%{transform:rotate(2.05deg) scale(1,1.019)}
-  82%{transform:rotate(-.4deg) scale(1,1.003)}
-}
-@keyframes guide-arc{
-  0%,100%{transform:rotate(0deg) translate(0,0)}
-  28%{transform:rotate(-1.5deg) translate(2px,-2px)}
-  55%{transform:rotate(-4deg) translate(6px,-5px)}
-  80%{transform:rotate(-.7deg) translate(1px,-1px)}
-}
-@media(prefers-reduced-motion:reduce){
-  .feather,.flight-guide{animation:none!important;transform:none!important}
-}
+@media(prefers-reduced-motion:reduce){.feather,.flight-guide{animation:none!important}}
 </style>
 <path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
 <path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
