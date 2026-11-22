@@ -5,10 +5,22 @@
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
 </defs>
-<path d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
-<path d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
-<path d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
-<path d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
-<path d="M544 160 C568 135 590 115 619 102" stroke="#A9D9DF" stroke-width="2" stroke-linecap="round"/>
-<circle cx="627" cy="98" r="4" fill="#F4AF2F"/><circle cx="568" cy="493" r="3" fill="#68BFC5"/>
+<style>
+/* V7 subtle motion preview — individual feather lag creates a gentle ripple. */
+.wing-feather,.wing-guidance{transform-box:fill-box;transform-origin:22% 18%;will-change:transform}
+.wing-feather{animation:wing-wave 5.6s ease-in-out infinite}
+.feather-teal{animation-delay:-.45s;animation-duration:5.8s}
+.feather-purple{animation-delay:-.9s;animation-duration:6s}
+.feather-gold{animation-delay:-1.35s;animation-duration:6.2s}
+.wing-guidance{transform-origin:40% 75%;animation:wing-guide 5.8s ease-in-out infinite}
+@keyframes wing-wave{0%,100%{transform:rotate(0deg) translateY(0)}48%{transform:rotate(2.6deg) translateY(-4px)}74%{transform:rotate(-.9deg) translateY(1px)}}
+@keyframes wing-guide{0%,100%{transform:rotate(0deg) translate(0,0)}50%{transform:rotate(-5deg) translate(5px,-5px)}}
+@media (prefers-reduced-motion:reduce){.wing-feather,.wing-guidance{animation:none!important;will-change:auto}}
+</style>
+<path class="wing-feather feather-blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
+<path class="wing-feather feather-teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
+<path class="wing-feather feather-purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
+<path class="wing-feather feather-gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
+<g class="wing-guidance"><path d="M544 160 C568 135 590 115 619 102" stroke="#A9D9DF" stroke-width="2" stroke-linecap="round"/>
+<circle cx="627" cy="98" r="4" fill="#F4AF2F"/></g><circle cx="568" cy="493" r="3" fill="#68BFC5"/>
 </svg>
