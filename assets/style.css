@@ -88,3 +88,7 @@ body.pyv-v5-design{color:#183D5C;background:#fff}
 .footer-links a{transition:color .15s ease}
 @media(max-width:1050px){.nav>a[aria-current="page"]:after{display:none}}
 @media(max-width:700px){.pagehero-v5{padding:70px 0 82px}.pagehero-v5 .container{grid-template-columns:1fr}.pagehero-watermark{max-width:210px;position:absolute;right:-55px;bottom:-75px;opacity:.32}.pagehero-v5 h1{font-size:clamp(37px,10vw,56px)}.pagehero-v5 .pagehero-inner{padding-right:12px}.section .cards,.section .pillars{margin-top:32px}}
+
+/* Contrast fix: keep heading and kicker legible on the dark collaboration banner. */
+.section .partner-banner h2{color:#fff}
+.section .partner-banner .kicker{color:#BCEBE9}
