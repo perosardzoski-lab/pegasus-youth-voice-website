@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" fill="none" role="img" aria-labelledby="title desc">
+<title id="title">Pegasus Youth Voice — four flowing feathers</title>
+<desc id="desc">Original approved blue, turquoise, purple and golden Pegasus-inspired feathers with graceful wind movement.</desc>
+<defs><linearGradient id="blue" x1="150" y1="80" x2="530" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#0769B5"/><stop offset="1" stop-color="#268BD2"/></linearGradient>
+ <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
+ <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient></defs>
+<style>
+/* Feathers bloom only as the particle cloud settles, then gently ride the wind. */
+.reveal{opacity:0;transform-box:view-box;transform-origin:360px 300px;animation:materialize 2.4s cubic-bezier(.23,.05,.18,1) forwards}
+.reveal.blue{animation-delay:4.05s}.reveal.teal{animation-delay:4.18s}.reveal.purple{animation-delay:4.31s}.reveal.gold{animation-delay:4.44s}
+@keyframes materialize{0%{opacity:0;transform:scale(.98)}35%{opacity:.20}70%{opacity:.72}100%{opacity:1;transform:scale(1)}}
+.feather{transform-box:view-box;animation:wind 9.1s cubic-bezier(.44,0,.56,1) infinite}
+.feather--blue{transform-origin:173px 99px;animation-delay:-.8s}
+.feather--teal{transform-origin:167px 222px;animation-delay:-3.0s}
+.feather--purple{transform-origin:209px 344px;animation-delay:-5.1s}
+.feather--gold{transform-origin:292px 469px;animation-delay:-6.8s}
+@keyframes wind{0%,100%{transform:rotate(0) translate(0,0)}18%{transform:rotate(-1.65deg) translate(1px,-3px)}40%{transform:rotate(3.7deg) translate(4px,-8px)}60%{transform:rotate(.4deg) translate(-1px,-2px)}79%{transform:rotate(-2.5deg) translate(-2px,4px)}91%{transform:rotate(1.2deg) translate(2px,-3px)}}
+@media(prefers-reduced-motion:reduce){.reveal,.feather{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<g class="reveal blue"><path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/></g>
+<g class="reveal teal"><path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/></g>
+<g class="reveal purple"><path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/></g>
+<g class="reveal gold"><path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/></g>
+</svg>
