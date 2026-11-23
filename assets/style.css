@@ -712,3 +712,22 @@ img,svg,video{max-width:100%}
 .editorial-foot{margin-top:45px;font-size:13px;color:#678092}
 .editorial-foot a{color:#0D5DA0}
 @media(max-width:780px){.editorial-layout{grid-template-columns:1fr}.editorial-shell{padding-top:40px}}
+
+
+/* Youth Voice article contributor form (not active before verified server readiness). */
+.contribution-body{background:#F7FAFC}
+.contribution-shell{width:min(800px,calc(100% - 34px));margin:0 auto;padding:70px 0}
+.contribution-heading h1{font-size:clamp(35px,5vw,55px);color:#0D5DA0}
+.contribution-heading>p:last-child{font-size:17px;line-height:1.7;color:#516F80}
+.contribution-back{display:inline-block;margin-bottom:45px;font-weight:700;color:#087E91}
+.contribution-form{margin:28px 0 26px;background:white;border:1px solid #DCEBF2;border-radius:18px;padding:clamp(22px,4vw,40px)}
+.contribution-form>label:not(.contribution-consent){display:block;color:#12537D;font-weight:700;margin:22px 0 9px}
+.contribution-form>input:not([type=checkbox]),.contribution-form>select,.contribution-form>textarea{display:block;width:100%;padding:13px;border:1px solid #BDD7E1;border-radius:9px;font:inherit;background:#FCFEFF;color:#214962}
+.contribution-form textarea{resize:vertical;line-height:1.65}
+.contribution-form small,.contribution-safety{color:#5A7181;font-size:13px;line-height:1.7}
+.contribution-consent{display:flex;align-items:start;gap:10px;margin:22px 0;line-height:1.6;color:#234E68}
+.contribution-consent input{margin-top:5px}
+.contribution-form button{margin-top:23px}
+.contribution-fallback{line-height:1.7;color:#4F6A7B}
+.contribution-honey{position:absolute;left:-10000px;top:auto;height:1px;width:1px;overflow:hidden}
+#contribution-result{margin-top:16px;font-weight:600;line-height:1.65}
