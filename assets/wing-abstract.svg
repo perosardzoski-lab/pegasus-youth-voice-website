@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" fill="none" role="img" aria-labelledby="title desc">
-<title id="title">Abstract Pegasus wing-inspired shapes</title><desc id="desc">Four flowing minimal curves in Pegasus blue, turquoise, purple and golden yellow, with generous white space.</desc>
+<title id="title">The Birth of a Voice — Pegasus-inspired flight</title>
+<desc id="desc">A central golden spark scatters coloured particles that become the four original blue, teal, purple and gold feather shapes. The feathers move softly in the wind while a golden dot orbits them in a perfect circle.</desc>
 <defs>
  <linearGradient id="blue" x1="150" y1="80" x2="530" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#0769B5"/><stop offset="1" stop-color="#268BD2"/></linearGradient>
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
@@ -24,49 +25,72 @@
 </mask>
 </defs>
 <style>
-/* Expressive Flight 2: wind-responsive staggered movement; exact V7 paths unchanged. */
-.feather{transform-box:view-box;animation:wind-feather 12s cubic-bezier(.42,0,.58,1) infinite}
-.feather--blue{transform-origin:173px 99px;animation-delay:0s}
-.feather--teal{transform-origin:167px 222px;animation-delay:-.28s}
-.feather--purple{transform-origin:209px 344px;animation-delay:-.56s}
-.feather--gold{transform-origin:292px 469px;animation-delay:-.84s}
-@keyframes wind-feather{
-  0%,100%{transform:rotate(0deg) translateY(0)}
-  12%{transform:rotate(-.6deg) translateY(-1px)}
-  27%{transform:rotate(2.8deg) translateY(-5px)}
-  44%{transform:rotate(.3deg) translateY(-1px)}
-  58%{transform:rotate(-.9deg) translateY(1px)}
-  72%{transform:rotate(2deg) translateY(-4px)}
-  87%{transform:rotate(.25deg) translateY(-1px)}
-}
-.wind-moving{display:inline}
+/* The Birth of a Voice: one-off spark, particles, feather reveal; continuous flight. */
+.feather{transform-box:view-box;animation:wind-feather 12s cubic-bezier(.42,0,.58,1) 4s infinite}
+.feather--blue{transform-origin:173px 99px}
+.feather--teal{transform-origin:167px 222px;animation-delay:3.72s}
+.feather--purple{transform-origin:209px 344px;animation-delay:3.44s}
+.feather--gold{transform-origin:292px 469px;animation-delay:3.16s}
+@keyframes wind-feather{0%,100%{transform:rotate(0deg) translateY(0)}12%{transform:rotate(-.6deg) translateY(-1px)}27%{transform:rotate(2.8deg) translateY(-5px)}44%{transform:rotate(.3deg) translateY(-1px)}58%{transform:rotate(-.9deg) translateY(1px)}72%{transform:rotate(2deg) translateY(-4px)}87%{transform:rotate(.25deg) translateY(-1px)}}
+.feather-reveal{opacity:0;transform-box:view-box;transform-origin:360px 300px;animation:feather-arrive .95s cubic-bezier(.2,.7,.2,1) forwards}
+.feather-reveal--blue{animation-delay:2.05s}
+.feather-reveal--teal{animation-delay:2.35s}
+.feather-reveal--purple{animation-delay:2.65s}
+.feather-reveal--gold{animation-delay:2.95s}
+@keyframes feather-arrive{0%{opacity:0;transform:translate(0,20px) scale(.77)}60%{opacity:.92}100%{opacity:1;transform:translate(0,0) scale(1)}}
+.origin-spark{transform-box:view-box;transform-origin:360px 300px;animation:spark-intro 1.05s ease-in-out forwards}
+@keyframes spark-intro{0%{opacity:0;transform:scale(.15)}35%{opacity:1;transform:scale(1.2)}70%{opacity:1;transform:scale(.85)}100%{opacity:0;transform:scale(0)}}
+.seed-particle{opacity:0;animation:particle-scatter 1.35s cubic-bezier(.2,.62,.5,1) var(--delay) both}
+@keyframes particle-scatter{0%{opacity:0;transform:translate(0,0) scale(.25)}20%{opacity:.95}70%{opacity:.65}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.25)}}
+.orbit-system{opacity:0;animation:orbit-appear .6s ease-out 3.55s forwards}
+@keyframes orbit-appear{to{opacity:1}}
+.orbit-guide{stroke:#8AC5D2;stroke-width:1;stroke-dasharray:2 10;opacity:.2}
 .wind-static{display:none}
 @media(prefers-reduced-motion:reduce){
- .feather{animation:none!important;transform:none!important}
- .wind-moving{display:none!important}
+ .feather,.feather-reveal,.origin-spark,.seed-particle,.orbit-system{animation:none!important}
+ .feather,.feather-reveal{opacity:1!important;transform:none!important}
+ .origin-spark,.seed-particle,.orbit-system{display:none!important}
  .wind-static{display:inline!important}
 }
 </style>
-<path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
-<path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
-<path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
-<path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
-
-<g class="wind-moving" aria-hidden="true">
- <g mask="url(#moving-trail-mask)">
-  <!-- 125 normalized units of flowing, unbroken, trailing air current. -->
-  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#A2D3DE" stroke-opacity=".23" stroke-width="4.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
-   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
-  </path>
-  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#419CB8" stroke-opacity=".76" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
-   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
-  </path>
- </g>
- <g>
-  <circle r="16" fill="url(#wind-glow)"/>
-  <circle r="4.5" fill="#F4AF2F"/>
-  <circle r="1.2" fill="#FFF5D6" opacity=".85"/>
-  <animateMotion path="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" keyPoints="0;.18;.38;.57;.78;1" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+<g class="origin-spark" aria-hidden="true"><circle cx="360" cy="300" r="25" fill="url(#wind-glow)"/><circle cx="360" cy="300" r="6" fill="#F4AF2F"/><circle cx="360" cy="300" r="2" fill="#FFF5D6"/></g>
+<g class="origin-particles" aria-hidden="true"><circle class="seed-particle" cx="360" cy="300" r="3" fill="#1988C9" style="--dx:48px;--dy:0px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:-63px;--dy:57px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:11px;--dy:-122px;--delay:0.95s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:97px;--dy:126px;--delay:1.00s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:-58px;--dy:-10px;--delay:1.06s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:81px;--dy:-52px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:-35px;--dy:128px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="3" fill="#F4AF2F" style="--dx:-78px;--dy:-151px;--delay:0.95s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:66px;--dy:24px;--delay:1.00s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:-99px;--dy:41px;--delay:1.06s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:61px;--dy:-130px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:54px;--dy:173px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:-70px;--dy:-41px;--delay:0.95s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:115px;--dy:-25px;--delay:1.00s"/>
+<circle class="seed-particle" cx="360" cy="300" r="3" fill="#9870BE" style="--dx:-89px;--dy:127px;--delay:1.06s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:-7px;--dy:-55px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:70px;--dy:59px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:-129px;--dy:5px;--delay:0.95s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:118px;--dy:-117px;--delay:1.00s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:-3px;--dy:66px;--delay:1.06s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:-66px;--dy:-79px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="3" fill="#4EB7B8" style="--dx:139px;--dy:19px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:-145px;--dy:101px;--delay:0.95s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:17px;--dy:-75px;--delay:1.00s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#1988C9" style="--dx:57px;--dy:99px;--delay:1.06s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#4EB7B8" style="--dx:-144px;--dy:-46px;--delay:0.84s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#9870BE" style="--dx:46px;--dy:-21px;--delay:0.90s"/>
+<circle class="seed-particle" cx="360" cy="300" r="1.8" fill="#F4AF2F" style="--dx:-34px;--dy:81px;--delay:0.95s"/></g>
+<g class="feather-reveal feather-reveal--blue"><path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/></g>
+<g class="feather-reveal feather-reveal--teal"><path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/></g>
+<g class="feather-reveal feather-reveal--purple"><path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/></g>
+<g class="feather-reveal feather-reveal--gold"><path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/></g>
+<g class="orbit-system" aria-hidden="true">
+ <circle class="orbit-guide" cx="360" cy="300" r="268" fill="none"/>
+ <g><animateTransform attributeName="transform" type="rotate" from="0 360 300" to="360 360 300" dur="12s" begin="3.8s" repeatCount="indefinite"/>
+  <circle cx="360" cy="32" r="21" fill="url(#wind-glow)"/><circle cx="360" cy="32" r="4.8" fill="#F4AF2F"/><circle cx="360" cy="32" r="1.4" fill="#FFF5D6"/>
+  <path d="M313 36 A268 268 0 0 1 360 32" stroke="#6EB9C8" stroke-width="2" opacity=".48" fill="none" stroke-linecap="round"/>
  </g>
 </g>
 <g class="wind-static" aria-hidden="true">
