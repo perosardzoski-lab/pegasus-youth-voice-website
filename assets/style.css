@@ -434,3 +434,30 @@ img,svg,video{max-width:100%}
 @media(prefers-reduced-motion:reduce){
   .pyv-about-enhanced .section .cards .about-value-card{transition:none}
 }
+
+
+/* Icon fidelity correction: show artwork cropped directly from the
+   approved Pegasus About Us visual reference, not redrawn approximations. */
+.pyv-about-enhanced .about-reference-icon{
+  display:block;
+  width:100px;
+  height:82px;
+  margin:0 0 17px;
+  background-image:url('/assets/about-approved-icons.svg?v=approved-exact-icon-art-v4');
+  background-size:300px 82px;
+  background-repeat:no-repeat;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 79% 85% at 49% 49%,#000 70%,transparent 100%);
+  mask-image:radial-gradient(ellipse 79% 85% at 49% 49%,#000 70%,transparent 100%);
+}
+.pyv-about-enhanced .about-reference-icon--mission{background-position:0 0}
+.pyv-about-enhanced .about-reference-icon--vision{background-position:-100px 0}
+.pyv-about-enhanced .about-reference-icon--principles{background-position:-200px 0}
+@media(max-width:700px){
+ .pyv-about-enhanced .about-reference-icon{
+   width:95px;height:78px;
+   background-size:285px 78px;
+ }
+ .pyv-about-enhanced .about-reference-icon--vision{background-position:-95px 0}
+ .pyv-about-enhanced .about-reference-icon--principles{background-position:-190px 0}
+}
