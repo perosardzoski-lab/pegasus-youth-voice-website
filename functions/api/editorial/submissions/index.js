@@ -1,4 +1,4 @@
-import {verifyEditorial,json} from "../../_lib/editorial-auth.js";
+import {verifyEditorial,json} from "../../../_lib/editorial-auth.js";
 export async function onRequestGet({request,env}){
  const who=await verifyEditorial(request,env);
  if(who.response)return who.response;
