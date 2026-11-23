@@ -303,3 +303,50 @@ img,svg,video{max-width:100%}
   100%{opacity:0;transform:translateY(4px) scaleY(1.09)}
 }
 @media(prefers-reduced-motion:reduce){.hero-flight-line{display:none!important}}
+
+
+/* The Birth of a Voice v8 — shared Canvas particle layer + preserved SVG wing.
+   The prior incoming blue line/banner and isolated blue endpoint are removed. */
+.hero-wing-frame .wing-composition{
+  position:relative;
+  width:100%;
+  max-width:610px;
+  aspect-ratio:6 / 5;
+  flex:none;
+  margin-inline:auto;
+  isolation:isolate;
+}
+.hero-wing-frame .wing-composition .wing-art{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  aspect-ratio:6 / 5;
+  object-fit:contain;
+  pointer-events:none;
+}
+.hero-wing-frame .wing-composition .particle-canvas{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.hero-wing-frame .wing-composition .particle-canvas[hidden]{display:none}
+.hero-flight-line{display:none!important}
+@media(min-width:1051px){
+  .hero-wing-frame .wing-composition{max-width:610px}
+}
+@media(max-width:1050px){
+  .hero-wing-frame .wing-composition{max-width:520px}
+}
+@media(max-width:650px){
+  .hero-wing-frame .wing-composition{max-width:min(100%,390px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-wing-frame .wing-composition .particle-canvas{display:none!important}
+}
