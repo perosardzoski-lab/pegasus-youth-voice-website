@@ -8,7 +8,7 @@
 .gi-intro {max-width:850px;margin-bottom:26px}
 .gi-card-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
 .gi-card {overflow:hidden;border:1px solid #dce9f3;border-radius:19px;background:#fff;box-shadow:0 8px 25px rgba(22,68,103,.05)}
-.gi-card-art {aspect-ratio:1.22;display:block;width:100%;background-image:url('/assets/get-involved-participation.png');background-size:200% 200%;background-repeat:no-repeat}
+.gi-card-art {aspect-ratio:1.22;display:block;width:100%;background-image:url('/assets/get-involved-participation.webp');background-size:200% 200%;background-repeat:no-repeat}
 .gi-card-art.p1 {background-position:0 0}.gi-card-art.p2 {background-position:100% 0}.gi-card-art.p3 {background-position:0 100%}.gi-card-art.p4 {background-position:100% 100%}
 .gi-card-body {padding:20px}.gi-card h3 {font-size:1.15rem;line-height:1.35;color:#174a76;margin:0 0 9px}.gi-card p {margin:0;line-height:1.55}
 .gi-process {display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
