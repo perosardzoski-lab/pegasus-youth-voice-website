@@ -25,3 +25,16 @@ CREATE TABLE IF NOT EXISTS editorial_events(
  FOREIGN KEY(submission_id) REFERENCES editorial_submissions(id)
 );
 CREATE INDEX IF NOT EXISTS idx_editorial_events_submission ON editorial_events(submission_id,created_at);
+
+CREATE TABLE IF NOT EXISTS editorial_images (
+ id TEXT PRIMARY KEY,
+ submission_id TEXT NOT NULL,
+ object_key TEXT NOT NULL UNIQUE,
+ original_name TEXT NOT NULL,
+ mime_type TEXT NOT NULL,
+ byte_size INTEGER NOT NULL,
+ position INTEGER NOT NULL,
+ created_at TEXT NOT NULL DEFAULT (datetime('now')),
+ FOREIGN KEY(submission_id) REFERENCES editorial_submissions(id)
+);
+CREATE INDEX IF NOT EXISTS idx_editorial_images_submission ON editorial_images(submission_id,position);
