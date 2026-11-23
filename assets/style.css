@@ -565,3 +565,53 @@ img,svg,video{max-width:100%}
   .pillars .flip-photo-back .flip-back-title{font-size:19px}
   .pillars .flip-photo-back .flip-back-copy{font-size:14px}
 }
+
+
+/* Youth Voice Blog launch · shared for EN / MK / SQ. */
+.blog-home-section .blog-section-heading{margin-bottom:25px}
+.blog-home-section .blog-section-heading h2{margin-bottom:0}
+.blog-feature{
+ display:grid;grid-template-columns:minmax(190px,.7fr) minmax(0,1.3fr);
+ border:1px solid #DDECF1;border-radius:20px;overflow:hidden;background:#fff;
+ box-shadow:0 15px 44px rgba(12,68,111,.055);margin:18px 0 65px;
+}
+.blog-feature-symbol{
+ min-height:320px;background:linear-gradient(145deg,#E5F5FF 7%,#E5F8F5 48%,#F2E9FA 85%,#FFF4D9);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+ color:#0D5DA0;font-size:16px;font-weight:800;letter-spacing:.07em;text-align:center;line-height:1.55;position:relative;
+}
+.blog-feature-symbol:after{content:"";height:5px;width:105px;border-radius:20px;background:linear-gradient(90deg,#0879BF 0 25%,#1CB9B4 25% 50%,#9764C5 50% 75%,#F2A92D 75%);margin-top:25px}
+.blog-feature-glyph{font-size:110px;font-weight:700;line-height:.7;color:#4BA6CE;opacity:.75;letter-spacing:0}
+.blog-feature-content{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.blog-feature-content h3{font-size:clamp(25px,2.6vw,39px);line-height:1.22;margin:3px 0 18px;color:#0D527F}
+.blog-feature-content h3 a{text-decoration:none;color:inherit}
+.blog-feature-content h3 a:hover{text-decoration:underline;text-decoration-color:#1CB9B4}
+.blog-feature-content p:not(.kicker){color:#536B7B;line-height:1.75;margin-bottom:24px}
+.blog-topics{margin-bottom:55px}.blog-topics h2{font-size:clamp(27px,3vw,39px);margin-bottom:10px}
+.blog-topics>p{color:#536B7B}.blog-topics .topic-grid{margin-top:24px}
+.blog-story-cta{background:linear-gradient(125deg,#F1F9FD,#F6F1FC 60%,#FFF9EE);border:1px solid #DDECF1;border-radius:20px;padding:clamp(28px,4.5vw,60px);text-align:center;margin:0 0 35px}
+.blog-story-cta h2{font-size:clamp(27px,3vw,38px)}.blog-story-cta>p:not(.kicker){max-width:720px;margin:15px auto 23px;line-height:1.75}
+.blog-cta-actions,.blog-article-actions{display:flex;flex-wrap:wrap;gap:13px;justify-content:center}
+.blog-story-form-area{max-width:780px;margin:55px auto 0;padding:clamp(24px,4vw,45px);background:#fff;border:1px solid #DDECF1;border-radius:20px}
+.blog-story-form-intro h2{font-size:clamp(27px,3vw,37px)}
+.blog-story-form-intro p,.blog-story-direct,.blog-story-privacy{line-height:1.65;color:#536B7B}
+.blog-story-form{display:flex;flex-direction:column;gap:9px;margin:26px 0 20px}
+.blog-story-form label{font-weight:700;color:#165379;font-size:14px}
+.blog-story-form input,.blog-story-form textarea{border:1px solid #BDD7E1;border-radius:10px;background:#FCFEFF;color:#183D5C;font:inherit;font-size:15px;width:100%;padding:13px 15px;margin:0 0 12px;resize:vertical}
+.blog-story-form input:focus-visible,.blog-story-form textarea:focus-visible{outline:3px solid #9BDEE3;outline-offset:2px}
+.blog-story-form button{align-self:flex-start;cursor:pointer;font-family:inherit}
+.blog-story-status{padding:12px;border:1px solid #BADBE2;background:#F1FAFC;border-radius:10px;font-size:14px;line-height:1.6}
+.blog-story-privacy{font-size:13px;margin-top:18px}
+.blog-post-page .pagehero-inner{max-width:850px}
+.blog-post-page .pagehero-v5 h1{font-size:clamp(36px,4.3vw,60px)}
+.blog-post-page .blog-pub-date{font-size:13px;color:#637E8E;margin-top:23px}
+.blog-article{max-width:790px}
+.blog-article .blog-article-lead{font-size:clamp(19px,2vw,24px);color:#15567D;font-weight:600;line-height:1.65;margin-bottom:48px}
+.blog-article-section{margin-bottom:42px}
+.blog-article-section h2{font-size:clamp(25px,2.8vw,35px);color:#0D527F;margin-bottom:16px}
+.blog-article-section p,.blog-article-conclusion{font-size:17px;line-height:1.9;color:#3C596F}
+.blog-article-conclusion{font-weight:600;margin:45px 0 31px}
+.blog-article-actions{justify-content:flex-start}
+.blog-backlink{margin-top:43px}.blog-backlink a{color:#087E91;font-weight:700}
+@media(max-width:750px){.blog-feature{grid-template-columns:1fr}.blog-feature-symbol{min-height:180px}.blog-feature-content{padding:27px}.blog-feature-glyph{font-size:75px}.blog-story-cta{padding:27px}}
+@media(max-width:490px){.blog-article-actions .btn,.blog-cta-actions .btn{width:100%;text-align:center}.blog-story-form-area{padding:22px}}
