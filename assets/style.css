@@ -471,3 +471,26 @@ img,svg,video{max-width:100%}
 @media(max-width:700px){
   .pyv-about-enhanced .section .cards .about-value-card{padding-top:24px}
 }
+
+
+/* Shared four-colour Pegasus signature for page titles.
+   Same dimensions and exact colours as the approved About Us accent.
+   Page-scoped; no changes to the homepage or other content. */
+.page-title-colour-accents{
+  display:flex;align-items:center;gap:5px;width:198px;max-width:60%;
+  margin:-9px 0 23px;pointer-events:none;
+}
+.page-title-colour-accents span{
+  display:block;height:4px;border-radius:99px;flex:1;
+  box-shadow:0 1px 2px rgba(9,82,122,.06);
+}
+.page-title-colour-accents span:nth-child(1){background:#0879BF}
+.page-title-colour-accents span:nth-child(2){background:#1CB9B4}
+.page-title-colour-accents span:nth-child(3){background:#9764C5}
+.page-title-colour-accents span:nth-child(4){background:#F2A92D}
+/* Get Involved uses its own hero heading spacing. */
+.gi-hero .page-title-colour-accents{margin:16px 0 23px}
+@media(max-width:700px){
+  .page-title-colour-accents{width:164px;margin:1px 0 19px}
+  .gi-hero .page-title-colour-accents{margin:13px 0 19px}
+}
