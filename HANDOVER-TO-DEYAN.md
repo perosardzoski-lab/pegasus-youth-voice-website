@@ -84,3 +84,12 @@ Updated `assets/wing-abstract.svg` on `main` (commit `29bb6809de7864ee82d7a0eddf
 - The existing SVG viewBox of 720×600 is unchanged, so mobile and desktop use the same proportional drawing. `prefers-reduced-motion` uses visible static feathers instead of the moving animation.
 - Source inspection confirms all three homepages reference `/assets/wing-abstract.svg` and the SVG contains four original feather paths, 28 particle elements and one orbit mechanism.
 - **Deployment/browser QA still needed**: the Cloudflare preview URLs could not be opened via the available browser tool. Test the entrance from a fresh page load and ongoing orbit on mobile and desktop, check browser support for animated SVG loaded in an image element and reduced-motion setting. Do not change DNS.
+
+
+## Final Canvas-based homepage reveal — 23 November 2026
+The animated landing-page wing has been rebuilt using two lightweight shared assets:
+- `assets/wing-feathers.svg`: the four **exact approved SVG feather path geometries** and their gradients, with timed feather fade-in and staggered continuous wind movement
+- `assets/pegasus-particles.js`: responsive, device-pixel-ratio-aware Canvas particle burst (999 dots + one surviving golden spark), path-sampled feather target reassembly, and one golden dot orbiting a **true radius-288 circle** around the feather artwork with a fading blue trailing arc that starts at zero length
+The English, Macedonian, and Albanian homepage hero sections now use a common `.wing-composition` with SVG and Canvas layers, and reference the shared CSS and JS with `?v=canvas-v8` cache-busting. The **old incoming translucent blue line, blue endpoint and banner were removed** from all three homepage HTML files. Original `assets/wing-abstract.svg` is retained in the repo as a legacy asset but is no longer referenced by homepages.
+Reduced-motion users see the fully formed feathers statically with no orbit or particles. The script stops the animation loop when the page is hidden.
+GitHub source checks passed for three language pages and the four SVG feather paths. **Live Cloudflare playback could not be accessed via available verification tools**, so Deyan should visually test entrance (0–6.3 seconds), particle convergence, independent wind, one continuing orbit and trail growing only after movement, at 320px/390px/mobile and desktop, plus reduced-motion; leave DNS/official domain untouched.
