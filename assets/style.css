@@ -233,3 +233,17 @@ img,svg,video{max-width:100%}
 @media(max-width:650px){
   .hero-wing-frame{transform:none}
 }
+
+
+/* Align the top of the landing-page wing artwork with the three-line
+   "Your Voice. Your Story. Your Impact." headline, not with the full text
+   and action buttons beneath it. Desktop only; mobile remains stacked. */
+@media(min-width:1051px){
+  .hero-grid{align-items:start}
+  .hero-wing-frame{
+    align-self:start;
+    min-height:0;
+    margin-top:clamp(38px,4vw,54px);
+    transform:none;
+  }
+}
