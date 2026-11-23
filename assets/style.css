@@ -220,3 +220,16 @@ img,svg,video{max-width:100%}
 .contact-detail a{color:#0D5DA0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
 .contact-detail a:hover{color:#087E88}
 @media(max-width:700px){.contact-details{grid-template-columns:1fr;gap:12px;margin:22px 0 32px}.contact-detail{padding:19px}.contact-detail a{font-size:clamp(14px,4vw,17px)}}
+
+
+/* Landing-page visual alignment: bring the Pegasus animation level with the
+   three-line hero headline, without changing header, text or mobile layout. */
+@media(min-width:1051px){
+  .hero-wing-frame{transform:translateY(-52px)}
+}
+@media(min-width:651px) and (max-width:1050px){
+  .hero-wing-frame{transform:translateY(-16px)}
+}
+@media(max-width:650px){
+  .hero-wing-frame{transform:none}
+}
