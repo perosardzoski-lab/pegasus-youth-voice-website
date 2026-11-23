@@ -97,3 +97,46 @@ body.pyv-v5-design{color:#183D5C;background:#fff}
 .youth-voices-footer{background:#fff;overflow:hidden;line-height:0}
 .youth-voices-footer img{display:block;width:100%;max-width:1600px;height:clamp(170px,27vw,350px);object-fit:cover;object-position:center 45%;margin:0 auto;opacity:.72}
 @media(max-width:650px){.youth-voices-footer img{height:190px;object-position:center 45%;opacity:.78}}
+
+
+/* ESCAPERO / Youth Centre Karposh: verified completed activity and responsive photo story. */
+.activity-section{padding-top:78px}
+.activity-feature{max-width:900px;margin:0 auto 34px}
+.activity-feature .kicker{font-size:12px;font-weight:700}
+.activity-feature h2{font-size:clamp(30px,4vw,47px);line-height:1.18;margin:16px 0 19px}
+.activity-feature p{font-size:clamp(15px,1.35vw,17px);line-height:1.85;color:#526B7B}
+.activity-feature .activity-intro{font-size:clamp(17px,1.7vw,20px);color:#234E6B}
+.activity-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.activity-tags span{border-radius:999px;background:#EDF8F9;border:1px solid #D8EDF2;color:#17667A;padding:6px 14px;font-size:13px;font-weight:600}
+.activity-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.activity-gallery a{display:block;overflow:hidden;border-radius:14px;position:relative;aspect-ratio:4/3;background:#EEF5F8;outline-offset:4px}
+.activity-gallery a:first-child{grid-column:1/-1;aspect-ratio:16/7}
+.activity-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease,filter .35s ease}
+@media(hover:hover){.activity-gallery a:hover img{transform:scale(1.025);filter:saturate(1.07)}}
+.activity-credit{color:#526B7B;font-size:13px;margin-top:15px}
+@media(max-width:650px){.activity-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.activity-gallery a:first-child{aspect-ratio:16/10}.activity-gallery a:last-child{grid-column:1/-1;aspect-ratio:16/9}.activity-feature{margin-bottom:23px}}
+@media(prefers-reduced-motion:reduce){.activity-gallery img{transition:none!important}.activity-gallery a:hover img{transform:none!important}}
+
+
+/* V7 interactive areas of work: accessible outlined icons and two-sided cards. */
+.section .pillars .flip-unit{padding:0;min-width:0;border:0;background:transparent;box-shadow:none;perspective:1100px}
+.flip-card{position:relative;display:block;width:100%;min-height:290px;padding:0;border:0;border-radius:14px;background:transparent;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.flip-card-inner{display:block;position:relative;width:100%;min-height:290px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.72,.2,1)}
+.flip-card[aria-pressed="true"] .flip-card-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;display:flex;flex-direction:column;border:1px solid #E2EDF2;border-radius:14px;padding:clamp(22px,2.5vw,30px);backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;box-shadow:0 5px 15px rgba(13,82,127,.025);overflow:hidden}
+.flip-front{justify-content:flex-start}
+.flip-heading{display:block;margin:14px 0 9px;font:700 clamp(17px,1.6vw,20px)/1.3 Manrope,Arial,sans-serif;color:#12537D}
+.flip-description{font-size:14px;line-height:1.65;color:#526B7B}
+.flip-hint{display:block;margin-top:auto;padding-top:15px;font-size:12px;font-weight:700;letter-spacing:.015em;color:#087E91}
+.flip-back{transform:rotateY(180deg);align-items:center;justify-content:center;text-align:center;background:#F8FCFD;border-color:#CBE3EC}
+.flip-art{display:grid;place-items:center;width:87px;height:87px;border:1px solid #CFE6EA;border-radius:50%;background:#fff;margin-bottom:11px}
+.flip-art svg{width:62px;height:62px}
+.flip-back-title{font:700 clamp(17px,1.6vw,20px)/1.35 Manrope,Arial,sans-serif;color:#12537D;margin-bottom:7px}
+.flip-back-copy{font-size:13px;line-height:1.55;color:#526B7B}
+.flip-card:hover .flip-face{border-color:#B3D8E1}
+.flip-card:focus-visible{outline:3px solid #087E91;outline-offset:4px}
+.flip-card:focus-visible .flip-face{border-color:#087E91}
+@media(max-width:650px){.flip-card,.flip-card-inner{min-height:265px}}
+@media(prefers-reduced-motion:reduce){.flip-card-inner{transition:none}}
+/* Ensure headings remain legible on navy call-to-action backgrounds. */
+.section .cta-band h2,.section .partner-banner h2{color:#fff}
