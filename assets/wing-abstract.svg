@@ -1,174 +1,183 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" fill="none" role="img" aria-labelledby="title desc">
-<title id="title">The Birth of a Voice — Pegasus-inspired flight</title>
-<desc id="desc">One golden spark explodes into one hundred irregular firework-like dots. The burst pauses and gathers into a glowing dot, while four original feathers fade into view and sway with the wind. A blue-tailed dot then orbits outside the feathers in a perfect circle.</desc>
+<title id="title">The Birth of a Voice — from spark to flight</title>
+<desc id="desc">A single golden spark scatters into one hundred uneven dots. Ninety-nine dots settle into four flowing feathers and disappear as the feather shapes fade in. The surviving golden dot circles outside them with a long fading blue trail as the feathers move in the wind.</desc>
 <defs>
  <linearGradient id="blue" x1="150" y1="80" x2="530" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#0769B5"/><stop offset="1" stop-color="#268BD2"/></linearGradient>
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
- <radialGradient id="wind-glow"><stop stop-color="#F4AF2F" stop-opacity=".32"/><stop offset=".4" stop-color="#F4AF2F" stop-opacity=".12"/><stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/></radialGradient>
- <linearGradient id="long-blue-tail" gradientUnits="userSpaceOnUse" x1="75" y1="250" x2="360" y2="12"><stop offset="0" stop-color="#399FC9" stop-opacity="0"/><stop offset=".28" stop-color="#268FC6" stop-opacity=".10"/><stop offset=".65" stop-color="#218DC5" stop-opacity=".42"/><stop offset="1" stop-color="#137ABD" stop-opacity=".90"/></linearGradient>
+ <radialGradient id="spark-glow"><stop stop-color="#F4AF2F" stop-opacity=".31"/><stop offset=".55" stop-color="#F4AF2F" stop-opacity=".13"/><stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/></radialGradient>
+ <linearGradient id="trail-blue" gradientUnits="userSpaceOnUse" x1="75" y1="250" x2="360" y2="12"><stop offset="0" stop-color="#349FCB" stop-opacity="0"/><stop offset=".22" stop-color="#2289C3" stop-opacity=".12"/><stop offset=".58" stop-color="#1A84C2" stop-opacity=".46"/><stop offset="1" stop-color="#137BBD" stop-opacity=".95"/></linearGradient>
 </defs>
 <style>
-/* Pegasus Youth Voice — The Birth of a Voice (firework awakening v2). */
-.spark{transform-box:view-box;transform-origin:360px 300px;animation:spark-once .95s ease-out both}
-@keyframes spark-once{0%{opacity:0;transform:scale(.15)}30%{opacity:1;transform:scale(1.4)}68%{opacity:1;transform:scale(.90)}100%{opacity:0;transform:scale(.08)}}
-/* Hold a true irregular 100-particle burst for over a second, then converge toward the orbit entry point. */
-.burst-dot{opacity:0;animation:burst-and-gather 5.15s cubic-bezier(.15,.74,.28,1) both}
-@keyframes burst-and-gather{
-  0%,12%{opacity:0;transform:translate(0px,0px) scale(.2)}
-  18%{opacity:.85;transform:translate(calc(var(--dx)*.38),calc(var(--dy)*.38)) scale(1.35)}
-  37%{opacity:1;transform:translate(var(--dx),var(--dy)) scale(1)}
-  62%{opacity:.94;transform:translate(calc(var(--dx) + var(--twinkle)),var(--dy)) scale(.96)}
-  76%{opacity:.4;transform:translate(calc(var(--dx)*.36),calc(var(--dy)*.36 - 165px)) scale(.6)}
-  92%,100%{opacity:0;transform:translate(0px,-288px) scale(.14)}
+/* The Birth of a Voice v3 — one spark becomes one hundred dots; 99 become
+   feather colour and form, while the original golden spark survives to orbit. */
+.burst-dot{opacity:0;animation:particle-to-feather 5.65s cubic-bezier(.19,.73,.25,1) both}
+@keyframes particle-to-feather{
+  0%,13%{opacity:0;transform:translate(0,0) scale(.12)}
+  23%{opacity:1;transform:translate(calc(var(--bx)*.50),calc(var(--by)*.50)) scale(1.35)}
+  34%,48%{opacity:1;transform:translate(var(--bx),var(--by)) scale(1)}
+  65%{opacity:.95;transform:translate(calc((var(--bx) + var(--fx))*.50),calc((var(--by) + var(--fy))*.50)) scale(1)}
+  83%{opacity:.80;transform:translate(var(--fx),var(--fy)) scale(.86)}
+  100%{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.18)}
 }
-.feather-entrance{opacity:0;transform-box:view-box;transform-origin:360px 300px;animation:feathers-from-background 1.65s cubic-bezier(.19,.7,.25,1) forwards}
-.feather-entrance--blue{animation-delay:2.65s}
-.feather-entrance--teal{animation-delay:2.86s}
-.feather-entrance--purple{animation-delay:3.07s}
-.feather-entrance--gold{animation-delay:3.28s}
-@keyframes feathers-from-background{0%{opacity:0;transform:translateY(14px) scale(.89)}50%{opacity:.65}100%{opacity:1;transform:translateY(0) scale(1)}}
-/* More expressive wind movement, staggered so the feathers never move as one rigid group. */
-.feather{transform-box:view-box;animation:feather-wind 8.6s ease-in-out infinite}
-.feather--blue{transform-origin:173px 99px;animation-delay:-1.3s}
-.feather--teal{transform-origin:167px 222px;animation-delay:-3.5s}
-.feather--purple{transform-origin:209px 344px;animation-delay:-5.2s}
-.feather--gold{transform-origin:292px 469px;animation-delay:-6.6s}
+.survivor-dot{transform-box:view-box;animation:survivor-journey 5.65s cubic-bezier(.21,.7,.3,1) both}
+@keyframes survivor-journey{
+  0%,13%{transform:translate(0,0)}
+  23%{transform:translate(-48px,-78px)}
+  34%,48%{transform:translate(-95px,-125px)}
+  67%{transform:translate(-24px,-194px)}
+  88%,100%{transform:translate(0,-288px)}
+}
+.spark-halo{transform-box:fill-box;transform-origin:center;animation:initial-glow .9s ease-out both}
+@keyframes initial-glow{0%{opacity:.18;transform:scale(.3)}40%{opacity:1;transform:scale(1.18)}100%{opacity:.6;transform:scale(.9)}}
+.feather-entrance{opacity:0;animation:feather-materialize 1.65s ease-out forwards}
+.feather-entrance--blue{animation-delay:3.66s}
+.feather-entrance--teal{animation-delay:3.79s}
+.feather-entrance--purple{animation-delay:3.92s}
+.feather-entrance--gold{animation-delay:4.05s}
+@keyframes feather-materialize{0%{opacity:0;filter:blur(3px)}55%{opacity:.45}100%{opacity:1;filter:blur(0)}}
+.feather{transform-box:view-box;animation:feather-wind 8s cubic-bezier(.44,0,.56,1) infinite}
+.feather--blue{transform-origin:173px 99px;animation-delay:-.9s}
+.feather--teal{transform-origin:167px 222px;animation-delay:-3s}
+.feather--purple{transform-origin:209px 344px;animation-delay:-5s}
+.feather--gold{transform-origin:292px 469px;animation-delay:-6.5s}
 @keyframes feather-wind{
   0%,100%{transform:rotate(0deg) translate(0,0)}
-  16%{transform:rotate(-2.3deg) translate(1px,-4px)}
-  36%{transform:rotate(4.6deg) translate(5px,-10px)}
-  55%{transform:rotate(.9deg) translate(-1px,-3px)}
-  74%{transform:rotate(-3.1deg) translate(-2px,4px)}
-  90%{transform:rotate(2.1deg) translate(2px,-5px)}
+  17%{transform:rotate(-2deg) translate(1px,-4px)}
+  38%{transform:rotate(4.2deg) translate(4px,-9px)}
+  59%{transform:rotate(.5deg) translate(-1px,-3px)}
+  78%{transform:rotate(-2.8deg) translate(-2px,4px)}
+  91%{transform:rotate(1.4deg) translate(2px,-3px)}
 }
-.orbit-system{opacity:0;animation:orbit-enter .7s ease-out 4.60s forwards}
-@keyframes orbit-enter{to{opacity:1}}
-.orbit-guide{stroke:#7EBFCE;stroke-width:1;stroke-dasharray:2 12;opacity:.12}
-.reduced-motion-orbit{display:none}
+/* Orbit and trail start when the original dot reaches the top of the circle. */
+.orbit-tail{opacity:0;animation:tail-appear .55s ease-out 5.5s forwards}
+@keyframes tail-appear{to{opacity:1}}
+.static-dot{display:none}
 @media(prefers-reduced-motion:reduce){
- .spark,.burst-dot,.feather-entrance,.feather,.orbit-system{animation:none!important}
- .spark,.burst-dot,.orbit-system{display:none!important}
- .feather-entrance,.feather{opacity:1!important;transform:none!important}
- .reduced-motion-orbit{display:inline!important}
+ .burst-dot,.survivor-dot,.spark-halo,.feather-entrance,.feather,.orbit-tail{animation:none!important}
+ .burst-dot,.survivor-dot{display:none!important}
+ .feather-entrance,.feather{opacity:1!important;transform:none!important;filter:none!important}
+ .orbit-traveller{display:none!important}
+ .static-dot{display:inline!important}
 }
 </style>
-<g class="spark" aria-hidden="true"><circle cx="360" cy="300" r="31" fill="url(#wind-glow)"/><circle cx="360" cy="300" r="7" fill="#F4AF2F"/><circle cx="360" cy="300" r="2.5" fill="#FFF8DC"/></g>
-<g class="burst" aria-hidden="true"><circle class="burst-dot" cx="360" cy="300" r="2.74" fill="#2A8CC4" style="--dx:175px;--dy:-18px;--twinkle:0.65px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.60" fill="#5AC2C6" style="--dx:-77px;--dy:42px;--twinkle:0.44px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.75" fill="#9466BA" style="--dx:5px;--dy:-228px;--twinkle:-0.27px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.60" fill="#EDB348" style="--dx:85px;--dy:91px;--twinkle:-0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.65" fill="#196FB3" style="--dx:-147px;--dy:-44px;--twinkle:0.75px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.90" fill="#2A8CC4" style="--dx:71px;--dy:-72px;--twinkle:0.27px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.31" fill="#5AC2C6" style="--dx:-30px;--dy:213px;--twinkle:0.25px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.55" fill="#9466BA" style="--dx:-152px;--dy:-166px;--twinkle:-0.74px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.00" fill="#EDB348" style="--dx:120px;--dy:33px;--twinkle:0.15px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.45" fill="#196FB3" style="--dx:-198px;--dy:63px;--twinkle:0.26px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.20" fill="#2A8CC4" style="--dx:41px;--dy:-216px;--twinkle:-0.75px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.25" fill="#5AC2C6" style="--dx:38px;--dy:93px;--twinkle:0.76px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.27" fill="#9466BA" style="--dx:-145px;--dy:-96px;--twinkle:0.65px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.81" fill="#EDB348" style="--dx:55px;--dy:-18px;--twinkle:-0.64px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.75" fill="#196FB3" style="--dx:-123px;--dy:172px;--twinkle:0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.25" fill="#2A8CC4" style="--dx:-39px;--dy:-220px;--twinkle:-0.15px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.21" fill="#5AC2C6" style="--dx:136px;--dy:107px;--twinkle:0.64px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.80" fill="#9466BA" style="--dx:-215px;--dy:-10px;--twinkle:-0.66px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.79" fill="#EDB348" style="--dx:59px;--dy:-34px;--twinkle:0.08px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.42" fill="#196FB3" style="--dx:-18px;--dy:124px;--twinkle:0.54px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.33" fill="#2A8CC4" style="--dx:-167px;--dy:-139px;--twinkle:0.04px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.24" fill="#5AC2C6" style="--dx:59px;--dy:22px;--twinkle:0.09px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.18" fill="#9466BA" style="--dx:-50px;--dy:18px;--twinkle:0.56px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.64" fill="#EDB348" style="--dx:43px;--dy:-136px;--twinkle:-0.56px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.53" fill="#196FB3" style="--dx:135px;--dy:183px;--twinkle:0.35px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.19" fill="#2A8CC4" style="--dx:-115px;--dy:-64px;--twinkle:-0.25px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.49" fill="#5AC2C6" style="--dx:170px;--dy:-124px;--twinkle:0.18px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.37" fill="#9466BA" style="--dx:-104px;--dy:162px;--twinkle:0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#EDB348" style="--dx:-86px;--dy:-180px;--twinkle:-0.02px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.99" fill="#196FB3" style="--dx:117px;--dy:69px;--twinkle:-0.45px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.63" fill="#2A8CC4" style="--dx:-199px;--dy:107px;--twinkle:-0.75px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.31" fill="#5AC2C6" style="--dx:92px;--dy:-174px;--twinkle:-0.70px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.41" fill="#9466BA" style="--dx:17px;--dy:117px;--twinkle:0.75px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.70" fill="#EDB348" style="--dx:-31px;--dy:-20px;--twinkle:0.77px"/>
- <circle class="burst-dot" cx="360" cy="300" r="3.58" fill="#196FB3" style="--dx:153px;--dy:-56px;--twinkle:-0.09px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.02" fill="#2A8CC4" style="--dx:-144px;--dy:91px;--twinkle:0.46px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.43" fill="#5AC2C6" style="--dx:17px;--dy:-71px;--twinkle:-0.04px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.53" fill="#9466BA" style="--dx:154px;--dy:139px;--twinkle:0.03px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.31" fill="#EDB348" style="--dx:-92px;--dy:-23px;--twinkle:-0.13px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.52" fill="#196FB3" style="--dx:129px;--dy:-68px;--twinkle:0.37px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.47" fill="#2A8CC4" style="--dx:-73px;--dy:199px;--twinkle:0.12px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.48" fill="#5AC2C6" style="--dx:-39px;--dy:-57px;--twinkle:0.54px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.88" fill="#9466BA" style="--dx:125px;--dy:34px;--twinkle:0.47px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#EDB348" style="--dx:-79px;--dy:68px;--twinkle:0.02px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.70" fill="#196FB3" style="--dx:32px;--dy:-55px;--twinkle:-0.53px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.97" fill="#2A8CC4" style="--dx:101px;--dy:174px;--twinkle:-0.54px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.57" fill="#5AC2C6" style="--dx:-61px;--dy:-27px;--twinkle:0.43px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.17" fill="#9466BA" style="--dx:66px;--dy:-41px;--twinkle:-0.04px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.47" fill="#EDB348" style="--dx:-73px;--dy:105px;--twinkle:-0.00px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.46" fill="#196FB3" style="--dx:-24px;--dy:-174px;--twinkle:0.79px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.27" fill="#2A8CC4" style="--dx:85px;--dy:97px;--twinkle:0.69px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.54" fill="#5AC2C6" style="--dx:-72px;--dy:0px;--twinkle:0.44px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.87" fill="#9466BA" style="--dx:89px;--dy:-75px;--twinkle:-0.36px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.08" fill="#EDB348" style="--dx:-10px;--dy:121px;--twinkle:-0.58px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.94" fill="#196FB3" style="--dx:-109px;--dy:-186px;--twinkle:-0.24px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.82" fill="#2A8CC4" style="--dx:157px;--dy:32px;--twinkle:-0.15px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.36" fill="#5AC2C6" style="--dx:-159px;--dy:126px;--twinkle:0.31px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.26" fill="#9466BA" style="--dx:23px;--dy:-109px;--twinkle:0.49px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.21" fill="#EDB348" style="--dx:112px;--dy:109px;--twinkle:0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.25" fill="#196FB3" style="--dx:-197px;--dy:-17px;--twinkle:-0.30px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.43" fill="#2A8CC4" style="--dx:180px;--dy:-91px;--twinkle:0.03px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.31" fill="#5AC2C6" style="--dx:-15px;--dy:73px;--twinkle:0.26px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.07" fill="#9466BA" style="--dx:-80px;--dy:-187px;--twinkle:0.73px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.70" fill="#EDB348" style="--dx:164px;--dy:62px;--twinkle:-0.17px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.20" fill="#196FB3" style="--dx:-183px;--dy:14px;--twinkle:-0.58px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.12" fill="#2A8CC4" style="--dx:41px;--dy:-99px;--twinkle:0.64px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.43" fill="#5AC2C6" style="--dx:56px;--dy:175px;--twinkle:-0.50px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.06" fill="#9466BA" style="--dx:-40px;--dy:-31px;--twinkle:0.19px"/>
- <circle class="burst-dot" cx="360" cy="300" r="3.20" fill="#EDB348" style="--dx:227px;--dy:10px;--twinkle:0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#196FB3" style="--dx:-108px;--dy:105px;--twinkle:-0.38px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.79" fill="#2A8CC4" style="--dx:39px;--dy:-212px;--twinkle:0.62px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.68" fill="#5AC2C6" style="--dx:126px;--dy:77px;--twinkle:-0.70px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.24" fill="#9466BA" style="--dx:-205px;--dy:12px;--twinkle:0.52px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.97" fill="#EDB348" style="--dx:130px;--dy:-77px;--twinkle:-0.55px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.84" fill="#196FB3" style="--dx:-7px;--dy:175px;--twinkle:-0.14px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.03" fill="#2A8CC4" style="--dx:-95px;--dy:-161px;--twinkle:0.75px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.55" fill="#5AC2C6" style="--dx:171px;--dy:14px;--twinkle:-0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#9466BA" style="--dx:-98px;--dy:103px;--twinkle:0.30px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.09" fill="#EDB348" style="--dx:16px;--dy:-66px;--twinkle:0.73px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.30" fill="#196FB3" style="--dx:36px;--dy:96px;--twinkle:0.50px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.88" fill="#2A8CC4" style="--dx:-146px;--dy:-20px;--twinkle:0.44px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.38" fill="#5AC2C6" style="--dx:148px;--dy:-55px;--twinkle:0.37px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.50" fill="#9466BA" style="--dx:-78px;--dy:214px;--twinkle:0.21px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.03" fill="#EDB348" style="--dx:-28px;--dy:-206px;--twinkle:-0.18px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.90" fill="#196FB3" style="--dx:184px;--dy:106px;--twinkle:-0.00px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.95" fill="#2A8CC4" style="--dx:-158px;--dy:49px;--twinkle:0.78px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.10" fill="#5AC2C6" style="--dx:60px;--dy:-77px;--twinkle:0.01px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.74" fill="#9466BA" style="--dx:2px;--dy:109px;--twinkle:0.50px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.66" fill="#EDB348" style="--dx:-78px;--dy:-63px;--twinkle:-0.80px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.58" fill="#196FB3" style="--dx:159px;--dy:29px;--twinkle:-0.73px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.63" fill="#2A8CC4" style="--dx:-92px;--dy:65px;--twinkle:0.30px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.56" fill="#5AC2C6" style="--dx:-31px;--dy:-168px;--twinkle:0.27px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.23" fill="#9466BA" style="--dx:54px;--dy:112px;--twinkle:0.48px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.89" fill="#EDB348" style="--dx:-80px;--dy:-35px;--twinkle:-0.07px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.12" fill="#196FB3" style="--dx:33px;--dy:-23px;--twinkle:-0.20px"/>
- <circle class="burst-dot" cx="360" cy="300" r="0.84" fill="#2A8CC4" style="--dx:-7px;--dy:57px;--twinkle:0.79px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.30" fill="#5AC2C6" style="--dx:-28px;--dy:-69px;--twinkle:0.08px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.44" fill="#9466BA" style="--dx:124px;--dy:49px;--twinkle:0.45px"/>
- <circle class="burst-dot" cx="360" cy="300" r="2.59" fill="#EDB348" style="--dx:-217px;--dy:47px;--twinkle:0.70px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.80" fill="#196FB3" style="--dx:37px;--dy:-108px;--twinkle:-0.19px"/></g>
+<g class="burst" aria-hidden="true"><circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#1685C7" style="--bx:200px;--by:35px;--fx:-69px;--fy:-106px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.83" fill="#50B9C0" style="--bx:-133px;--by:151px;--fx:-48px;--fy:66px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.34" fill="#8F67B8" style="--bx:2px;--by:-73px;--fx:27px;--fy:114px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.99" fill="#F4AF2F" style="--bx:110px;--by:147px;--fx:43px;--fy:192px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.18" fill="#1685C7" style="--bx:-191px;--by:-5px;--fx:-37px;--fy:-36px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.36" fill="#50B9C0" style="--bx:154px;--by:-88px;--fx:22px;--fy:72px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.34" fill="#8F67B8" style="--bx:-42px;--by:192px;--fx:13px;--fy:131px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#F4AF2F" style="--bx:-64px;--by:-176px;--fx:33px;--fy:184px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#1685C7" style="--bx:163px;--by:102px;--fx:-157px;--fy:-141px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.68" fill="#50B9C0" style="--bx:-184px;--by:86px;--fx:-176px;--fy:-40px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.82" fill="#8F67B8" style="--bx:62px;--by:-119px;--fx:2px;--fy:110px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.00" fill="#F4AF2F" style="--bx:55px;--by:197px;--fx:15px;--fy:221px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.94" fill="#1685C7" style="--bx:-71px;--by:-35px;--fx:-38px;--fy:-19px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.08" fill="#50B9C0" style="--bx:204px;--by:-75px;--fx:-57px;--fy:18px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.73" fill="#8F67B8" style="--bx:-117px;--by:112px;--fx:76px;--fy:108px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.45" fill="#F4AF2F" style="--bx:-59px;--by:-189px;--fx:40px;--fy:194px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.45" fill="#1685C7" style="--bx:154px;--by:114px;--fx:-109px;--fy:-122px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.74" fill="#50B9C0" style="--bx:-155px;--by:23px;--fx:-55px;--fy:30px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.90" fill="#8F67B8" style="--bx:140px;--by:-168px;--fx:-41px;--fy:112px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.78" fill="#F4AF2F" style="--bx:-26px;--by:152px;--fx:61px;--fy:171px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.30" fill="#1685C7" style="--bx:-65px;--by:-51px;--fx:-36px;--fy:-86px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.12" fill="#50B9C0" style="--bx:146px;--by:28px;--fx:-119px;--fy:-9px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.82" fill="#8F67B8" style="--bx:-87px;--by:77px;--fx:-62px;--fy:112px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.52" fill="#F4AF2F" style="--bx:35px;--by:-87px;--fx:14px;--fy:179px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.41" fill="#1685C7" style="--bx:56px;--by:113px;--fx:-7px;--fy:-51px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.48" fill="#50B9C0" style="--bx:-213px;--by:-36px;--fx:-83px;--fy:15px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.82" fill="#8F67B8" style="--bx:62px;--by:-32px;--fx:-60px;--fy:111px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.81" fill="#F4AF2F" style="--bx:-44px;--by:121px;--fx:59px;--fy:191px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.03" fill="#1685C7" style="--bx:-20px;--by:-105px;--fx:-93px;--fy:-76px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.27" fill="#50B9C0" style="--bx:71px;--by:33px;--fx:-55px;--fy:70px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.46" fill="#8F67B8" style="--bx:-176px;--by:20px;--fx:-74px;--fy:107px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.83" fill="#F4AF2F" style="--bx:88px;--by:-119px;--fx:36px;--fy:183px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.12" fill="#1685C7" style="--bx:38px;--by:113px;--fx:26px;--fy:-53px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.84" fill="#50B9C0" style="--bx:-145px;--by:-88px;--fx:-106px;--fy:55px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.00" fill="#8F67B8" style="--bx:180px;--by:-52px;--fx:150px;--fy:60px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.55" fill="#F4AF2F" style="--bx:-124px;--by:90px;--fx:87px;--fy:164px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.41" fill="#1685C7" style="--bx:6px;--by:-53px;--fx:-10px;--fy:-95px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.56" fill="#50B9C0" style="--bx:150px;--by:167px;--fx:136px;--fy:0px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.75" fill="#8F67B8" style="--bx:-206px;--by:6px;--fx:139px;--fy:62px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.86" fill="#F4AF2F" style="--bx:51px;--by:-49px;--fx:66px;--fy:179px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#1685C7" style="--bx:-20px;--by:81px;--fx:-162px;--fy:-126px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.99" fill="#50B9C0" style="--bx:-78px;--by:-101px;--fx:15px;--fy:56px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.42" fill="#8F67B8" style="--bx:204px;--by:58px;--fx:16px;--fy:117px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.84" fill="#F4AF2F" style="--bx:-132px;--by:103px;--fx:46px;--fy:200px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.41" fill="#1685C7" style="--bx:21px;--by:-63px;--fx:-153px;--fy:-115px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.62" fill="#50B9C0" style="--bx:56px;--by:203px;--fx:-54px;--fy:66px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.17" fill="#8F67B8" style="--bx:-115px;--by:-43px;--fx:-50px;--fy:133px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.19" fill="#F4AF2F" style="--bx:103px;--by:-55px;--fx:9px;--fy:191px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.88" fill="#1685C7" style="--bx:-34px;--by:100px;--fx:-53px;--fy:-106px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.07" fill="#50B9C0" style="--bx:-1px;--by:-73px;--fx:8px;--fy:50px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.35" fill="#8F67B8" style="--bx:93px;--by:51px;--fx:-62px;--fy:115px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.68" fill="#F4AF2F" style="--bx:-121px;--by:23px;--fx:123px;--fy:132px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.78" fill="#1685C7" style="--bx:47px;--by:-71px;--fx:-15px;--fy:-33px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.36" fill="#50B9C0" style="--bx:16px;--by:221px;--fx:-129px;--fy:-10px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.70" fill="#8F67B8" style="--bx:-105px;--by:-88px;--fx:130px;--fy:59px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.10" fill="#F4AF2F" style="--bx:174px;--by:-21px;--fx:-25px;--fy:196px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.01" fill="#1685C7" style="--bx:-69px;--by:44px;--fx:-121px;--fy:-123px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.26" fill="#50B9C0" style="--bx:-10px;--by:-156px;--fx:-124px;--fy:19px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.78" fill="#8F67B8" style="--bx:135px;--by:137px;--fx:41px;--fy:133px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.20" fill="#F4AF2F" style="--bx:-203px;--by:-57px;--fx:91px;--fy:159px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.25" fill="#1685C7" style="--bx:115px;--by:-82px;--fx:-2px;--fy:-29px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.75" fill="#50B9C0" style="--bx:-45px;--by:199px;--fx:106px;--fy:10px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.49" fill="#8F67B8" style="--bx:-47px;--by:-129px;--fx:-27px;--fy:95px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.83" fill="#F4AF2F" style="--bx:70px;--by:37px;--fx:18px;--fy:185px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.54" fill="#1685C7" style="--bx:-131px;--by:56px;--fx:-73px;--fy:-75px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.27" fill="#50B9C0" style="--bx:49px;--by:-160px;--fx:79px;--fy:26px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.47" fill="#8F67B8" style="--bx:12px;--by:166px;--fx:-57px;--fy:123px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.77" fill="#F4AF2F" style="--bx:-123px;--by:-73px;--fx:-16px;--fy:198px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.53" fill="#1685C7" style="--bx:88px;--by:-13px;--fx:-100px;--fy:-95px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.53" fill="#50B9C0" style="--bx:-59px;--by:114px;--fx:47px;--fy:45px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.35" fill="#8F67B8" style="--bx:8px;--by:-199px;--fx:87px;--fy:133px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#F4AF2F" style="--bx:53px;--by:55px;--fx:65px;--fy:187px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.72" fill="#1685C7" style="--bx:-62px;--by:1px;--fx:-168px;--fy:-150px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.02" fill="#50B9C0" style="--bx:41px;--by:-41px;--fx:18px;--fy:55px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.67" fill="#8F67B8" style="--bx:-10px;--by:159px;--fx:143px;--fy:45px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.78" fill="#F4AF2F" style="--bx:-112px;--by:-188px;--fx:-27px;--fy:187px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.50" fill="#1685C7" style="--bx:144px;--by:17px;--fx:-135px;--fy:-131px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.37" fill="#50B9C0" style="--bx:-101px;--by:79px;--fx:-43px;--fy:73px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.71" fill="#8F67B8" style="--bx:83px;--by:-183px;--fx:33px;--fy:141px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.11" fill="#F4AF2F" style="--bx:23px;--by:87px;--fx:50px;--fy:196px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.99" fill="#1685C7" style="--bx:-131px;--by:-26px;--fx:12px;--fy:-62px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.17" fill="#50B9C0" style="--bx:162px;--by:-44px;--fx:-53px;--fy:72px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.73" fill="#8F67B8" style="--bx:-79px;--by:113px;--fx:68px;--fy:135px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.03" fill="#F4AF2F" style="--bx:-38px;--by:-113px;--fx:24px;--fy:218px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.79" fill="#1685C7" style="--bx:67px;--by:40px;--fx:-44px;--fy:-75px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.50" fill="#50B9C0" style="--bx:-76px;--by:16px;--fx:-186px;--fy:-68px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#8F67B8" style="--bx:164px;--by:-152px;--fx:39px;--fy:136px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.57" fill="#F4AF2F" style="--bx:-6px;--by:138px;--fx:-18px;--fy:185px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.15" fill="#1685C7" style="--bx:-60px;--by:-64px;--fx:-31px;--fy:-26px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#50B9C0" style="--bx:73px;--by:8px;--fx:-60px;--fy:61px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.31" fill="#8F67B8" style="--bx:-90px;--by:97px;--fx:-84px;--fy:112px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.05" fill="#F4AF2F" style="--bx:48px;--by:-216px;--fx:12px;--fy:212px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#1685C7" style="--bx:147px;--by:136px;--fx:-64px;--fy:-101px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.97" fill="#50B9C0" style="--bx:-188px;--by:-30px;--fx:-91px;--fy:36px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.78" fill="#8F67B8" style="--bx:134px;--by:-64px;--fx:-53px;--fy:119px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.46" fill="#F4AF2F" style="--bx:-20px;--by:168px;--fx:65px;--fy:184px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.85" fill="#1685C7" style="--bx:-54px;--by:-78px;--fx:-111px;--fy:-70px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.66" fill="#50B9C0" style="--bx:158px;--by:73px;--fx:18px;--fy:36px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.28" fill="#8F67B8" style="--bx:-177px;--by:77px;--fx:11px;--fy:99px"/></g>
 <g class="feather-entrance feather-entrance--blue"><path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/></g>
 <g class="feather-entrance feather-entrance--teal"><path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/></g>
 <g class="feather-entrance feather-entrance--purple"><path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/></g>
 <g class="feather-entrance feather-entrance--gold"><path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/></g>
-<g class="orbit-system" aria-hidden="true">
- <circle class="orbit-guide" cx="360" cy="300" r="288"/>
+<g class="orbit-traveller" aria-hidden="true">
  <g>
-  <animateTransform attributeName="transform" type="rotate" from="0 360 300" to="360 360 300" dur="11s" begin="4.75s" repeatCount="indefinite"/>
-  <!-- True circle: centre (360,300), radius 288; no intersection with the feathers. -->
-  <path d="M76.4 250 A288 288 0 0 1 360 12" stroke="url(#long-blue-tail)" stroke-width="3.8" stroke-linecap="round" fill="none"/>
-  <path d="M136 119 A288 288 0 0 1 360 12" stroke="#7CCFDD" stroke-opacity=".23" stroke-width="8" stroke-linecap="round" fill="none"/>
-  <circle cx="360" cy="12" r="16" fill="url(#wind-glow)"/>
-  <circle cx="360" cy="12" r="4.4" fill="#F4AF2F"/>
-  <circle cx="360" cy="12" r="1.4" fill="#FFF7DC"/>
+  <animateTransform attributeName="transform" type="rotate" from="0 360 300" to="360 360 300" begin="5.65s" dur="11s" repeatCount="indefinite"/>
+  <g class="orbit-tail">
+   <path d="M76.4 250 A288 288 0 0 1 360 12" stroke="url(#trail-blue)" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+   <path d="M137 117 A288 288 0 0 1 360 12" stroke="#80CCDE" stroke-opacity=".20" stroke-width="8" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- This is the original spark and the one surviving firework dot, not a new replacement dot. -->
+  <g class="survivor-dot">
+   <circle class="spark-halo" cx="360" cy="300" r="25" fill="url(#spark-glow)"/>
+   <circle cx="360" cy="300" r="5.5" fill="#F4AF2F"/>
+   <circle cx="360" cy="300" r="1.6" fill="#FFF9DC"/>
+  </g>
  </g>
 </g>
-<g class="reduced-motion-orbit" aria-hidden="true"><circle cx="647" cy="300" r="4" fill="#F4AF2F"/></g>
+<g class="static-dot" aria-hidden="true"><circle cx="360" cy="12" r="4.5" fill="#F4AF2F"/></g>
 </svg>
