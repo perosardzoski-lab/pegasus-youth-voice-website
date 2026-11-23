@@ -25,3 +25,27 @@
 .gi-contact {text-align:center}
 @media(max-width:980px){.gi-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gi-hero-grid{grid-template-columns:1fr}.gi-process{grid-template-columns:1fr}.gi-formlead{grid-template-columns:1fr}.gi-formlead img{justify-self:start;max-width:560px}}
 @media(max-width:580px){.gi-card-grid{grid-template-columns:1fr}.gi-hero-media img{border-radius:14px}.gi-card-art{aspect-ratio:1.8}.gi-hero{padding:34px 0}.gi-formbox{padding:8px 0}.gi-formbox iframe{min-height:1380px}.gi-hero h1{font-size:2.65rem}}
+
+
+/* November 2026 mobile refinement — image ratios, spacing and embedded form. */
+@media(max-width:980px){
+  .gi-hero-grid>*,.gi-process>*,.gi-formlead>*{min-width:0}
+  .gi-hero-media{width:100%}
+  .gi-hero-media img{width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}
+  .gi-process img,.gi-formlead img{height:auto;max-width:100%;object-fit:contain}
+}
+@media(max-width:580px){
+  .gi-hero{padding:34px 0 30px}
+  .gi-hero-grid{gap:22px}
+  .gi-hero h1{font-size:clamp(32px,9vw,42px);line-height:1.14;overflow-wrap:break-word}
+  .gi-hero p{font-size:16px;line-height:1.65}
+  .gi-hero-media img{height:auto;aspect-ratio:2/1;object-fit:contain;border-radius:14px}
+  .gi-card-grid{gap:13px;margin-top:20px}
+  .gi-card-art{aspect-ratio:1.6}
+  .gi-card-body{padding:18px}
+  .gi-process{gap:23px}
+  .gi-formlead{gap:18px}
+  .gi-formbox{padding:8px 0;border-radius:14px}
+  .gi-formbox iframe{width:100%;max-width:100%;min-height:1380px}
+  .gi-form-actions .btn{max-width:100%;text-align:center}
+}
