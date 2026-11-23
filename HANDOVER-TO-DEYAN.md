@@ -74,3 +74,13 @@ Commit `19e60c01cb1dd00fb55d53308b8ea5f80c83e8f7` on `main` added the four final
 - At viewport widths up to 700px, the four activity-card pictures display as **square 1:1 crops** with `background-size:auto 200%` on the shared 2×2 sprite, keeping the native image ratio rather than stretching. On desktop the pre-existing card image layout remains unchanged.
 - Keep the approved hero and pre-form photographic images and membership Google Form unchanged.
 - Source verification confirms the three pages have exactly three step cards each, no photo-strip image reference, shared stylesheet and the original registration form. Perform live viewport QA on Cloudflare deployment at 320px, 390px, 768px and desktop to confirm positioning, image crops and form usability.
+
+
+## Landing-page SVG animation — The Birth of a Voice (approved 23 November 2026)
+Updated `assets/wing-abstract.svg` on `main` (commit `29bb6809de7864ee82d7a0eddf830fb414b5d29c`). All three homepages share this same SVG asset.
+- A central golden spark appears once, followed by a one-time scatter of 28 coloured particles.
+- The **exact four pre-existing feather path shapes** emerge in staggered order, then continue their gentle wind-like movement.
+- The golden dot follows a true circular 360° orbit (radius 268, centre 360,300, 12-second rotation), rather than the previous irregular path.
+- The existing SVG viewBox of 720×600 is unchanged, so mobile and desktop use the same proportional drawing. `prefers-reduced-motion` uses visible static feathers instead of the moving animation.
+- Source inspection confirms all three homepages reference `/assets/wing-abstract.svg` and the SVG contains four original feather paths, 28 particle elements and one orbit mechanism.
+- **Deployment/browser QA still needed**: the Cloudflare preview URLs could not be opened via the available browser tool. Test the entrance from a fresh page load and ongoing orbit on mobile and desktop, check browser support for animated SVG loaded in an image element and reduced-motion setting. Do not change DNS.
