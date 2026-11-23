@@ -19,7 +19,7 @@ export async function onRequestPost({request,env}){
  if(!origin||origin!==new URL(request.url).origin)return json({ok:false,error:"origin_denied"},403);
  let form;try{form=await request.formData()}catch{return json({ok:false,error:"invalid_format"},400)}
  if(form.get("website"))return json({ok:true},202);
- const title=clean(form.get("title")),body=String(form.get("body")||"").replace(/\\r\\n/g,"\\n").trim(),category=clean(form.get("category")),
+ const title=clean(form.get("title")),body=String(form.get("body")||"").replace(/\r\n/g,"\n").trim(),category=clean(form.get("category")),
  locale=clean(form.get("locale")),displayName=clean(form.get("display_name")),email=clean(form.get("email"));
  if(title.length<5||title.length>140||body.length<150||body.length>15000||displayName.length<2||displayName.length>90||
     !categories.has(category)||!["en","mk","sq"].includes(locale)||!/^\S+@\S+\.\S+$/.test(email)||email.length>150||
@@ -35,24 +35,23 @@ export async function onRequestPost({request,env}){
       remoteip:request.headers.get("CF-Connecting-IP")||""})});
   if(!v.ok||(await v.json()).success!==true)return json({ok:false,error:"captcha_failed"},403);
  }catch{return json({ok:false,error:"captcha_unavailable"},503)}
+ const prepared=[];
+ for(const file of images){const raw=new Uint8Array(await file.arrayBuffer());if(!validImage(raw,file.type))return json({ok:false,error:"invalid_image_content"},400);prepared.push({file,raw})}
  const id=crypto.randomUUID(),uploaded=[];
  try{
-  for(let i=0;i<images.length;i++){
-   const file=images[i],raw=new Uint8Array(await file.arrayBuffer());
-   if(!validImage(raw,file.type))return json({ok:false,error:"invalid_image_content"},400);
+  for(let i=0;i<prepared.length;i++){
+   const {file,raw}=prepared[i];
    const ext=file.type==="image/jpeg"?"jpg":file.type==="image/png"?"png":"webp";
    const key="editorial/"+id+"/"+crypto.randomUUID()+"."+ext;
    await env.EDITORIAL_R2.put(key,raw,{httpMetadata:{contentType:file.type}});
    uploaded.push({id:crypto.randomUUID(),key,name:clean(file.name).slice(0,140),mime:file.type,size:raw.byteLength,index:i});
   }
-  await env.EDITORIAL_DB.prepare("INSERT INTO editorial_submissions (id,title,category,locale,display_name,reply_email,body,status) VALUES(?,?,?,?,?,?,?,'submitted')")
-   .bind(id,title,category,locale,displayName,email,body).run();
-  for(const f of uploaded){
-   await env.EDITORIAL_DB.prepare("INSERT INTO editorial_images(id,submission_id,object_key,original_name,mime_type,byte_size,position) VALUES(?,?,?,?,?,?,?)")
-   .bind(f.id,id,f.key,f.name,f.mime,f.size,f.index).run();
-  }
-  await env.EDITORIAL_DB.prepare("INSERT INTO editorial_events(submission_id,actor,action,details) VALUES(?,?,?,?)")
-   .bind(id,"contributor","submitted","Article received for private editorial review").run();
+  const statements=[
+   env.EDITORIAL_DB.prepare("INSERT INTO editorial_submissions (id,title,category,locale,display_name,reply_email,body,status) VALUES(?,?,?,?,?,?,?,'submitted')").bind(id,title,category,locale,displayName,email,body),
+   ...uploaded.map(f=>env.EDITORIAL_DB.prepare("INSERT INTO editorial_images(id,submission_id,object_key,original_name,mime_type,byte_size,position) VALUES(?,?,?,?,?,?,?)").bind(f.id,id,f.key,f.name,f.mime,f.size,f.index)),
+   env.EDITORIAL_DB.prepare("INSERT INTO editorial_events(submission_id,actor,action,details) VALUES(?,?,?,?)").bind(id,"contributor","submitted","Article received for private editorial review")
+  ];
+  await env.EDITORIAL_DB.batch(statements);
   if(env.RESEND_API_KEY&&env.STORY_FROM_EMAIL){
    const summary="New Youth Voice submission: "+title+"\nCategory: "+category+"\nLanguage: "+locale+"\nAuthor: "+displayName+"\nPhotos: "+uploaded.length+"\nReference: "+id+"\n\nSign in to the private Editorial Desk to read it.";
    try{await fetch("https://api.resend.com/emails",{method:"POST",headers:{"Authorization":"Bearer "+env.RESEND_API_KEY,"Content-Type":"application/json"},
