@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">The Birth of a Voice — cinematic spark to flight</title>
-<desc id="desc">A single golden spark scatters into one hundred uneven dots. Ninety-nine dots drift into four flowing feather shapes and dissolve as the feathers softly materialize. The surviving golden dot circles outside them with a long fading blue trail as the feathers move in the wind.</desc>
+<desc id="desc">A single golden spark scatters into three hundred uneven dots. Two hundred and ninety-nine dots drift into four flowing feather shapes and dissolve as the feathers softly materialize. The surviving golden dot circles outside them with a long fading blue trail as the feathers move in the wind.</desc>
 <defs>
  <linearGradient id="blue" x1="150" y1="80" x2="530" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#0769B5"/><stop offset="1" stop-color="#268BD2"/></linearGradient>
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
  <radialGradient id="spark-glow"><stop stop-color="#F4AF2F" stop-opacity=".31"/><stop offset=".55" stop-color="#F4AF2F" stop-opacity=".13"/><stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/></radialGradient>
  <linearGradient id="trail-blue" gradientUnits="userSpaceOnUse" x1="75" y1="250" x2="360" y2="12"><stop offset="0" stop-color="#349FCB" stop-opacity="0"/><stop offset=".22" stop-color="#2289C3" stop-opacity=".12"/><stop offset=".58" stop-color="#1A84C2" stop-opacity=".46"/><stop offset="1" stop-color="#137BBD" stop-opacity=".95"/></linearGradient>
-</defs>
+<linearGradient id="wing-ribbon-blue" x1="90" y1="285" x2="360" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#096EAC" stop-opacity="0"/><stop offset=".35" stop-color="#117CB8" stop-opacity=".65"/><stop offset=".78" stop-color="#298EC5" stop-opacity=".92"/><stop offset="1" stop-color="#7ACBE2" stop-opacity=".12"/></linearGradient></defs>
 <style>
 /* The Birth of a Voice v4 — cinematic particle-to-feather dissolve.
    All 99 coloured dots originate at the original golden dot and settle
@@ -70,7 +70,26 @@
  .orbit-traveller{display:none!important}
  .static-dot{display:inline!important}
 }
+
+/* Wing-origin blue ribbon sweeps toward the single spark and triggers the burst. */
+.wing-sweep{opacity:0;animation:sweep-visibility 1.75s ease-in-out .06s both}
+.wing-sweep path{stroke-dasharray:0 370;animation:ribbon-draw .82s cubic-bezier(.2,.7,.22,1) .08s forwards}
+.wing-sweep-glow{filter:blur(4px)}
+@keyframes ribbon-draw{0%{stroke-dasharray:0 370}100%{stroke-dasharray:370 370}}
+@keyframes sweep-visibility{0%{opacity:0}14%{opacity:1}55%{opacity:1}100%{opacity:0}}
+/* A denser burst can still softly resolve into the actual four feather silhouettes. */
+.burst-dot{animation-duration:6.1s}
+.feather-entrance--blue{animation-delay:3.45s}
+.feather-entrance--teal{animation-delay:3.59s}
+.feather-entrance--purple{animation-delay:3.73s}
+.feather-entrance--gold{animation-delay:3.87s}
+@media(prefers-reduced-motion:reduce){.wing-sweep,.wing-sweep path{display:none!important;animation:none!important}}
 </style>
+<g class="wing-sweep" aria-hidden="true">
+ <path class="wing-sweep-glow" d="M100 282 C176 172 272 204 360 300" stroke="#7ACBE2" stroke-width="18" stroke-opacity=".19" stroke-linecap="round" fill="none"/>
+ <path class="wing-sweep-core" d="M100 282 C176 172 272 204 360 300" stroke="url(#wing-ribbon-blue)" stroke-width="9" stroke-linecap="round" fill="none"/>
+ <path class="wing-sweep-fine" d="M100 282 C176 172 272 204 360 300" stroke="#D1F4FA" stroke-width="1.8" stroke-opacity=".68" stroke-linecap="round" fill="none"/>
+</g>
 <g class="burst" aria-hidden="true"><circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#1685C7" style="--bx:200px;--by:35px;--hx:100px;--hy:18px;--fx:-69px;--fy:-106px;--mx:66px;--my:-35px"/>
  <circle class="burst-dot" cx="360" cy="300" r="2.83" fill="#50B9C0" style="--bx:-133px;--by:151px;--hx:-66px;--hy:76px;--fx:-48px;--fy:66px;--mx:-90px;--my:109px"/>
  <circle class="burst-dot" cx="360" cy="300" r="1.34" fill="#8F67B8" style="--bx:2px;--by:-73px;--hx:1px;--hy:-36px;--fx:27px;--fy:114px;--mx:15px;--my:21px"/>
@@ -169,7 +188,207 @@
  <circle class="burst-dot" cx="360" cy="300" r="2.46" fill="#F4AF2F" style="--bx:-20px;--by:168px;--hx:-10px;--hy:84px;--fx:65px;--fy:184px;--mx:23px;--my:176px"/>
  <circle class="burst-dot" cx="360" cy="300" r="1.85" fill="#1685C7" style="--bx:-54px;--by:-78px;--hx:-27px;--hy:-39px;--fx:-111px;--fy:-70px;--mx:-82px;--my:-74px"/>
  <circle class="burst-dot" cx="360" cy="300" r="2.66" fill="#50B9C0" style="--bx:158px;--by:73px;--hx:79px;--hy:37px;--fx:18px;--fy:36px;--mx:88px;--my:55px"/>
- <circle class="burst-dot" cx="360" cy="300" r="1.28" fill="#8F67B8" style="--bx:-177px;--by:77px;--hx:-88px;--hy:39px;--fx:11px;--fy:99px;--mx:-83px;--my:88px"/></g>
+ <circle class="burst-dot" cx="360" cy="300" r="1.28" fill="#8F67B8" style="--bx:-177px;--by:77px;--hx:-88px;--hy:39px;--fx:11px;--fy:99px;--mx:-83px;--my:88px"/><circle class="burst-dot" cx="360" cy="300" r="0.66" fill="#1685C7" style="--bx:191px;--by:-22px;--hx:96px;--hy:-11px;--fx:47px;--fy:-56px;--mx:119px;--my:-39px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.30" fill="#50B9C0" style="--bx:-56px;--by:44px;--hx:-28px;--hy:22px;--fx:-96px;--fy:44px;--mx:-76px;--my:44px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.01" fill="#8F67B8" style="--bx:-3px;--by:-74px;--hx:-1px;--hy:-37px;--fx:-66px;--fy:88px;--mx:-34px;--my:7px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.44" fill="#F4AF2F" style="--bx:78px;--by:93px;--hx:39px;--hy:47px;--fx:34px;--fy:185px;--mx:56px;--my:139px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.94" fill="#1685C7" style="--bx:-52px;--by:-3px;--hx:-26px;--hy:-1px;--fx:-13px;--fy:-71px;--mx:-32px;--my:-37px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#50B9C0" style="--bx:77px;--by:-82px;--hx:39px;--hy:-41px;--fx:-75px;--fy:14px;--mx:1px;--my:-34px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.13" fill="#8F67B8" style="--bx:-46px;--by:83px;--hx:-23px;--hy:42px;--fx:94px;--fy:111px;--mx:24px;--my:97px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.21" fill="#F4AF2F" style="--bx:-67px;--by:-92px;--hx:-33px;--hy:-46px;--fx:56px;--fy:175px;--mx:-5px;--my:42px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.89" fill="#1685C7" style="--bx:175px;--by:100px;--hx:88px;--hy:50px;--fx:-31px;--fy:-8px;--mx:72px;--my:46px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.64" fill="#50B9C0" style="--bx:-173px;--by:85px;--hx:-86px;--hy:43px;--fx:23px;--fy:62px;--mx:-75px;--my:74px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.21" fill="#8F67B8" style="--bx:46px;--by:-229px;--hx:23px;--hy:-114px;--fx:-27px;--fy:138px;--mx:10px;--my:-45px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.94" fill="#F4AF2F" style="--bx:34px;--by:79px;--hx:17px;--hy:40px;--fx:76px;--fy:160px;--mx:55px;--my:120px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.52" fill="#1685C7" style="--bx:-200px;--by:-90px;--hx:-100px;--hy:-45px;--fx:-79px;--fy:-77px;--mx:-139px;--my:-83px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.52" fill="#50B9C0" style="--bx:79px;--by:-24px;--hx:40px;--hy:-12px;--fx:-131px;--fy:-5px;--mx:-26px;--my:-14px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.12" fill="#8F67B8" style="--bx:-44px;--by:63px;--hx:-22px;--hy:32px;--fx:58px;--fy:120px;--mx:7px;--my:92px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.69" fill="#F4AF2F" style="--bx:17px;--by:-128px;--hx:9px;--hy:-64px;--fx:114px;--fy:142px;--mx:66px;--my:7px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.80" fill="#1685C7" style="--bx:178px;--by:131px;--hx:89px;--hy:66px;--fx:-126px;--fy:-97px;--mx:26px;--my:17px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.23" fill="#50B9C0" style="--bx:-122px;--by:-21px;--hx:-61px;--hy:-10px;--fx:-14px;--fy:53px;--mx:-68px;--my:16px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.57" fill="#8F67B8" style="--bx:30px;--by:-22px;--hx:15px;--hy:-11px;--fx:88px;--fy:127px;--mx:59px;--my:53px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.87" fill="#F4AF2F" style="--bx:3px;--by:185px;--hx:2px;--hy:93px;--fx:40px;--fy:174px;--mx:22px;--my:180px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.82" fill="#1685C7" style="--bx:-83px;--by:-128px;--hx:-41px;--hy:-64px;--fx:-3px;--fy:-1px;--mx:-43px;--my:-64px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.74" fill="#50B9C0" style="--bx:204px;--by:0px;--hx:102px;--hy:0px;--fx:124px;--fy:-6px;--mx:164px;--my:-3px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.59" fill="#8F67B8" style="--bx:-27px;--by:22px;--hx:-13px;--hy:11px;--fx:139px;--fy:83px;--mx:56px;--my:53px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.77" fill="#F4AF2F" style="--bx:42px;--by:-149px;--hx:21px;--hy:-74px;--fx:71px;--fy:182px;--mx:57px;--my:17px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.81" fill="#1685C7" style="--bx:29px;--by:87px;--hx:15px;--hy:44px;--fx:-21px;--fy:-20px;--mx:4px;--my:34px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.25" fill="#50B9C0" style="--bx:-120px;--by:-50px;--hx:-60px;--hy:-25px;--fx:-80px;--fy:6px;--mx:-100px;--my:-22px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.14" fill="#8F67B8" style="--bx:193px;--by:-60px;--hx:97px;--hy:-30px;--fx:27px;--fy:94px;--mx:110px;--my:17px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.21" fill="#F4AF2F" style="--bx:-87px;--by:128px;--hx:-43px;--hy:64px;--fx:87px;--fy:166px;--mx:0px;--my:147px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.18" fill="#1685C7" style="--bx:-13px;--by:-47px;--hx:-6px;--hy:-23px;--fx:16px;--fy:-68px;--mx:2px;--my:-57px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.77" fill="#50B9C0" style="--bx:103px;--by:66px;--hx:52px;--hy:33px;--fx:-76px;--fy:41px;--mx:14px;--my:54px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#8F67B8" style="--bx:-170px;--by:71px;--hx:-85px;--hy:36px;--fx:-42px;--fy:125px;--mx:-106px;--my:98px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.00" fill="#F4AF2F" style="--bx:22px;--by:-59px;--hx:11px;--hy:-29px;--fx:35px;--fy:177px;--mx:29px;--my:59px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.06" fill="#1685C7" style="--bx:-8px;--by:153px;--hx:-4px;--hy:77px;--fx:-184px;--fy:-175px;--mx:-96px;--my:-11px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.76" fill="#50B9C0" style="--bx:-205px;--by:-106px;--hx:-102px;--hy:-53px;--fx:-41px;--fy:77px;--mx:-123px;--my:-14px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.63" fill="#8F67B8" style="--bx:169px;--by:8px;--hx:85px;--hy:4px;--fx:-59px;--fy:113px;--mx:55px;--my:61px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.87" fill="#F4AF2F" style="--bx:-159px;--by:94px;--hx:-79px;--hy:47px;--fx:16px;--fy:188px;--mx:-71px;--my:141px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.22" fill="#1685C7" style="--bx:-10px;--by:-44px;--hx:-5px;--hy:-22px;--fx:7px;--fy:-76px;--mx:-1px;--my:-60px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.81" fill="#50B9C0" style="--bx:94px;--by:176px;--hx:47px;--hy:88px;--fx:-131px;--fy:-16px;--mx:-18px;--my:80px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.14" fill="#8F67B8" style="--bx:-147px;--by:16px;--hx:-73px;--hy:8px;--fx:43px;--fy:96px;--mx:-52px;--my:56px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.33" fill="#F4AF2F" style="--bx:48px;--by:-64px;--hx:24px;--hy:-32px;--fx:-22px;--fy:190px;--mx:13px;--my:63px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.18" fill="#1685C7" style="--bx:-31px;--by:68px;--hx:-15px;--hy:34px;--fx:-30px;--fy:-63px;--mx:-30px;--my:3px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.19" fill="#50B9C0" style="--bx:-103px;--by:-125px;--hx:-51px;--hy:-62px;--fx:-109px;--fy:52px;--mx:-106px;--my:-36px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#8F67B8" style="--bx:67px;--by:1px;--hx:34px;--hy:1px;--fx:167px;--fy:35px;--mx:117px;--my:18px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.88" fill="#F4AF2F" style="--bx:-144px;--by:126px;--hx:-72px;--hy:63px;--fx:-28px;--fy:195px;--mx:-86px;--my:161px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.07" fill="#1685C7" style="--bx:77px;--by:-107px;--hx:39px;--hy:-53px;--fx:-42px;--fy:-95px;--mx:18px;--my:-101px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.24" fill="#50B9C0" style="--bx:16px;--by:82px;--hx:8px;--hy:41px;--fx:-109px;--fy:-5px;--mx:-46px;--my:39px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.62" fill="#8F67B8" style="--bx:-150px;--by:-39px;--hx:-75px;--hy:-19px;--fx:173px;--fy:16px;--mx:12px;--my:-11px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.92" fill="#F4AF2F" style="--bx:123px;--by:-73px;--hx:62px;--hy:-36px;--fx:17px;--fy:208px;--mx:70px;--my:68px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.62" fill="#1685C7" style="--bx:-40px;--by:112px;--hx:-20px;--hy:56px;--fx:34px;--fy:-69px;--mx:-3px;--my:22px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.12" fill="#50B9C0" style="--bx:-35px;--by:-176px;--hx:-17px;--hy:-88px;--fx:6px;--fy:66px;--mx:-14px;--my:-55px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.91" fill="#8F67B8" style="--bx:51px;--by:59px;--hx:26px;--hy:30px;--fx:-67px;--fy:100px;--mx:-8px;--my:80px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#F4AF2F" style="--bx:-117px;--by:-20px;--hx:-58px;--hy:-10px;--fx:-5px;--fy:212px;--mx:-61px;--my:96px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.92" fill="#1685C7" style="--bx:46px;--by:-35px;--hx:23px;--hy:-17px;--fx:-146px;--fy:-104px;--mx:-50px;--my:-69px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.25" fill="#50B9C0" style="--bx:28px;--by:109px;--hx:14px;--hy:55px;--fx:10px;--fy:22px;--mx:19px;--my:66px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.37" fill="#8F67B8" style="--bx:-133px;--by:-108px;--hx:-66px;--hy:-54px;--fx:-1px;--fy:149px;--mx:-67px;--my:21px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.86" fill="#F4AF2F" style="--bx:60px;--by:21px;--hx:30px;--hy:11px;--fx:74px;--fy:163px;--mx:67px;--my:92px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.72" fill="#1685C7" style="--bx:-174px;--by:99px;--hx:-87px;--hy:50px;--fx:-92px;--fy:-76px;--mx:-133px;--my:12px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.83" fill="#50B9C0" style="--bx:-22px;--by:-205px;--hx:-11px;--hy:-102px;--fx:-86px;--fy:9px;--mx:-54px;--my:-98px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.46" fill="#8F67B8" style="--bx:66px;--by:179px;--hx:33px;--hy:90px;--fx:73px;--fy:109px;--mx:70px;--my:144px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.80" fill="#F4AF2F" style="--bx:-88px;--by:4px;--hx:-44px;--hy:2px;--fx:-48px;--fy:178px;--mx:-68px;--my:91px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#1685C7" style="--bx:55px;--by:-19px;--hx:28px;--hy:-9px;--fx:-72px;--fy:-67px;--mx:-8px;--my:-43px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.85" fill="#50B9C0" style="--bx:-92px;--by:154px;--hx:-46px;--hy:77px;--fx:-45px;--fy:83px;--mx:-68px;--my:119px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.88" fill="#8F67B8" style="--bx:-44px;--by:-211px;--hx:-22px;--hy:-105px;--fx:103px;--fy:94px;--mx:30px;--my:-58px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.02" fill="#F4AF2F" style="--bx:37px;--by:22px;--hx:19px;--hy:11px;--fx:-11px;--fy:201px;--mx:13px;--my:112px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.86" fill="#1685C7" style="--bx:-166px;--by:96px;--hx:-83px;--hy:48px;--fx:34px;--fy:-82px;--mx:-66px;--my:7px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.67" fill="#50B9C0" style="--bx:37px;--by:-172px;--hx:19px;--hy:-86px;--fx:-82px;--fy:42px;--mx:-22px;--my:-65px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.67" fill="#8F67B8" style="--bx:21px;--by:39px;--hx:11px;--hy:20px;--fx:-131px;--fy:65px;--mx:-55px;--my:52px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#F4AF2F" style="--bx:-43px;--by:-23px;--hx:-21px;--hy:-11px;--fx:17px;--fy:193px;--mx:-13px;--my:85px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.14" fill="#1685C7" style="--bx:86px;--by:-8px;--hx:43px;--hy:-4px;--fx:-128px;--fy:-89px;--mx:-21px;--my:-48px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.82" fill="#50B9C0" style="--bx:-26px;--by:36px;--hx:-13px;--hy:18px;--fx:-91px;--fy:45px;--mx:-58px;--my:41px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.47" fill="#8F67B8" style="--bx:-74px;--by:-211px;--hx:-37px;--hy:-105px;--fx:-2px;--fy:115px;--mx:-38px;--my:-48px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.89" fill="#F4AF2F" style="--bx:101px;--by:76px;--hx:51px;--hy:38px;--fx:-46px;--fy:185px;--mx:28px;--my:131px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.54" fill="#1685C7" style="--bx:-203px;--by:-6px;--hx:-101px;--hy:-3px;--fx:29px;--fy:-82px;--mx:-87px;--my:-44px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.51" fill="#50B9C0" style="--bx:190px;--by:-132px;--hx:95px;--hy:-66px;--fx:6px;--fy:39px;--mx:98px;--my:-46px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.68" fill="#8F67B8" style="--bx:-32px;--by:95px;--hx:-16px;--hy:48px;--fx:-78px;--fy:103px;--mx:-55px;--my:99px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#F4AF2F" style="--bx:-118px;--by:-152px;--hx:-59px;--hy:-76px;--fx:36px;--fy:211px;--mx:-41px;--my:30px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.13" fill="#1685C7" style="--bx:137px;--by:19px;--hx:69px;--hy:10px;--fx:1px;--fy:-77px;--mx:69px;--my:-29px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.31" fill="#50B9C0" style="--bx:-132px;--by:74px;--hx:-66px;--hy:37px;--fx:2px;--fy:46px;--mx:-65px;--my:60px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.37" fill="#8F67B8" style="--bx:61px;--by:-104px;--hx:31px;--hy:-52px;--fx:100px;--fy:101px;--mx:81px;--my:-1px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#F4AF2F" style="--bx:27px;--by:137px;--hx:14px;--hy:69px;--fx:37px;--fy:198px;--mx:32px;--my:168px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.40" fill="#1685C7" style="--bx:-93px;--by:-8px;--hx:-46px;--hy:-4px;--fx:83px;--fy:-92px;--mx:-5px;--my:-50px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.74" fill="#50B9C0" style="--bx:204px;--by:-75px;--hx:102px;--hy:-37px;--fx:-108px;--fy:50px;--mx:48px;--my:-12px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.25" fill="#8F67B8" style="--bx:-22px;--by:100px;--hx:-11px;--hy:50px;--fx:-54px;--fy:108px;--mx:-38px;--my:104px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.28" fill="#F4AF2F" style="--bx:-1px;--by:-78px;--hx:0px;--hy:-39px;--fx:86px;--fy:163px;--mx:43px;--my:43px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.72" fill="#1685C7" style="--bx:101px;--by:108px;--hx:51px;--hy:54px;--fx:-1px;--fy:-62px;--mx:50px;--my:23px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.21" fill="#50B9C0" style="--bx:-141px;--by:49px;--hx:-70px;--hy:25px;--fx:-109px;--fy:50px;--mx:-125px;--my:50px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.86" fill="#8F67B8" style="--bx:111px;--by:-127px;--hx:56px;--hy:-63px;--fx:32px;--fy:123px;--mx:72px;--my:-2px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.38" fill="#F4AF2F" style="--bx:13px;--by:106px;--hx:7px;--hy:53px;--fx:81px;--fy:173px;--mx:47px;--my:140px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.76" fill="#1685C7" style="--bx:-199px;--by:-88px;--hx:-99px;--hy:-44px;--fx:-16px;--fy:-81px;--mx:-107px;--my:-84px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.58" fill="#50B9C0" style="--bx:167px;--by:-10px;--hx:84px;--hy:-5px;--fx:-73px;--fy:59px;--mx:47px;--my:25px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.07" fill="#8F67B8" style="--bx:-106px;--by:87px;--hx:-53px;--hy:44px;--fx:148px;--fy:42px;--mx:21px;--my:65px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.18" fill="#F4AF2F" style="--bx:13px;--by:-37px;--hx:7px;--hy:-18px;--fx:21px;--fy:201px;--mx:17px;--my:82px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.19" fill="#1685C7" style="--bx:39px;--by:79px;--hx:20px;--hy:40px;--fx:-70px;--fy:-111px;--mx:-15px;--my:-16px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.77" fill="#50B9C0" style="--bx:-44px;--by:-10px;--hx:-22px;--hy:-5px;--fx:-153px;--fy:-18px;--mx:-98px;--my:-14px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.69" fill="#8F67B8" style="--bx:28px;--by:-23px;--hx:14px;--hy:-11px;--fx:-110px;--fy:70px;--mx:-41px;--my:24px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.05" fill="#F4AF2F" style="--bx:-19px;--by:120px;--hx:-9px;--hy:60px;--fx:82px;--fy:172px;--mx:32px;--my:146px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.95" fill="#1685C7" style="--bx:-26px;--by:-33px;--hx:-13px;--hy:-16px;--fx:22px;--fy:-78px;--mx:-2px;--my:-55px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.92" fill="#50B9C0" style="--bx:169px;--by:94px;--hx:85px;--hy:47px;--fx:-8px;--fy:68px;--mx:81px;--my:81px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.62" fill="#8F67B8" style="--bx:-203px;--by:81px;--hx:-101px;--hy:41px;--fx:14px;--fy:121px;--mx:-94px;--my:101px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.18" fill="#F4AF2F" style="--bx:29px;--by:-48px;--hx:15px;--hy:-24px;--fx:30px;--fy:176px;--mx:30px;--my:64px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.63" fill="#1685C7" style="--bx:75px;--by:115px;--hx:38px;--hy:58px;--fx:9px;--fy:-64px;--mx:42px;--my:26px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.83" fill="#50B9C0" style="--bx:-130px;--by:-39px;--hx:-65px;--hy:-19px;--fx:-18px;--fy:38px;--mx:-74px;--my:0px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#8F67B8" style="--bx:226px;--by:-55px;--hx:113px;--hy:-27px;--fx:132px;--fy:89px;--mx:179px;--my:17px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.25" fill="#F4AF2F" style="--bx:-20px;--by:31px;--hx:-10px;--hy:16px;--fx:46px;--fy:186px;--mx:13px;--my:109px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.04" fill="#1685C7" style="--bx:-20px;--by:-92px;--hx:-10px;--hy:-46px;--fx:-84px;--fy:-97px;--mx:-52px;--my:-94px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.91" fill="#50B9C0" style="--bx:133px;--by:103px;--hx:67px;--hy:52px;--fx:-153px;--fy:-24px;--mx:-10px;--my:40px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.15" fill="#8F67B8" style="--bx:-222px;--by:18px;--hx:-111px;--hy:9px;--fx:32px;--fy:139px;--mx:-95px;--my:79px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.41" fill="#F4AF2F" style="--bx:178px;--by:-128px;--hx:89px;--hy:-64px;--fx:60px;--fy:172px;--mx:119px;--my:22px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.72" fill="#1685C7" style="--bx:5px;--by:86px;--hx:3px;--hy:43px;--fx:11px;--fy:-80px;--mx:8px;--my:3px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.49" fill="#50B9C0" style="--bx:-34px;--by:-23px;--hx:-17px;--hy:-11px;--fx:-16px;--fy:38px;--mx:-25px;--my:8px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.11" fill="#8F67B8" style="--bx:168px;--by:15px;--hx:84px;--hy:8px;--fx:19px;--fy:104px;--mx:94px;--my:60px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.81" fill="#F4AF2F" style="--bx:-100px;--by:81px;--hx:-50px;--hy:41px;--fx:-1px;--fy:215px;--mx:-50px;--my:148px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.38" fill="#1685C7" style="--bx:26px;--by:-53px;--hx:13px;--hy:-26px;--fx:-110px;--fy:-73px;--mx:-42px;--my:-63px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.66" fill="#50B9C0" style="--bx:12px;--by:36px;--hx:6px;--hy:18px;--fx:-130px;--fy:-15px;--mx:-59px;--my:11px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.14" fill="#8F67B8" style="--bx:-49px;--by:-7px;--hx:-24px;--hy:-3px;--fx:7px;--fy:104px;--mx:-21px;--my:49px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.11" fill="#F4AF2F" style="--bx:39px;--by:-12px;--hx:20px;--hy:-6px;--fx:-17px;--fy:192px;--mx:11px;--my:90px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.79" fill="#1685C7" style="--bx:-49px;--by:171px;--hx:-24px;--hy:86px;--fx:-50px;--fy:-105px;--mx:-49px;--my:33px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.84" fill="#50B9C0" style="--bx:-63px;--by:-141px;--hx:-31px;--hy:-70px;--fx:50px;--fy:64px;--mx:-6px;--my:-38px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.98" fill="#8F67B8" style="--bx:105px;--by:46px;--hx:53px;--hy:23px;--fx:46px;--fy:102px;--mx:76px;--my:74px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.26" fill="#F4AF2F" style="--bx:-76px;--by:48px;--hx:-38px;--hy:24px;--fx:37px;--fy:210px;--mx:-19px;--my:129px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#1685C7" style="--bx:24px;--by:-25px;--hx:12px;--hy:-12px;--fx:-95px;--fy:-119px;--mx:-35px;--my:-72px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.13" fill="#50B9C0" style="--bx:90px;--by:170px;--hx:45px;--hy:85px;--fx:32px;--fy:25px;--mx:61px;--my:98px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#8F67B8" style="--bx:-182px;--by:-142px;--hx:-91px;--hy:-71px;--fx:-7px;--fy:103px;--mx:-94px;--my:-19px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.05" fill="#F4AF2F" style="--bx:215px;--by:8px;--hx:108px;--hy:4px;--fx:32px;--fy:189px;--mx:124px;--my:99px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.97" fill="#1685C7" style="--bx:-98px;--by:132px;--hx:-49px;--hy:66px;--fx:22px;--fy:-73px;--mx:-38px;--my:30px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.24" fill="#50B9C0" style="--bx:-31px;--by:-223px;--hx:-15px;--hy:-111px;--fx:34px;--fy:62px;--mx:2px;--my:-80px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.54" fill="#8F67B8" style="--bx:63px;--by:90px;--hx:32px;--hy:45px;--fx:112px;--fy:81px;--mx:88px;--my:86px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.11" fill="#F4AF2F" style="--bx:-171px;--by:20px;--hx:-85px;--hy:10px;--fx:22px;--fy:209px;--mx:-74px;--my:115px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#1685C7" style="--bx:98px;--by:-49px;--hx:49px;--hy:-24px;--fx:-82px;--fy:-91px;--mx:8px;--my:-70px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.58" fill="#50B9C0" style="--bx:-34px;--by:106px;--hx:-17px;--hy:53px;--fx:-46px;--fy:73px;--mx:-40px;--my:90px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.11" fill="#8F67B8" style="--bx:-85px;--by:-176px;--hx:-42px;--hy:-88px;--fx:36px;--fy:130px;--mx:-24px;--my:-23px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.02" fill="#F4AF2F" style="--bx:60px;--by:22px;--hx:30px;--hy:11px;--fx:63px;--fy:184px;--mx:62px;--my:103px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.82" fill="#1685C7" style="--bx:-157px;--by:140px;--hx:-78px;--hy:70px;--fx:-87px;--fy:-86px;--mx:-122px;--my:27px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.00" fill="#50B9C0" style="--bx:102px;--by:-177px;--hx:51px;--hy:-88px;--fx:-21px;--fy:54px;--mx:41px;--my:-61px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.61" fill="#8F67B8" style="--bx:21px;--by:27px;--hx:11px;--hy:14px;--fx:-38px;--fy:100px;--mx:-8px;--my:64px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.24" fill="#F4AF2F" style="--bx:-108px;--by:-40px;--hx:-54px;--hy:-20px;--fx:56px;--fy:172px;--mx:-26px;--my:66px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.06" fill="#1685C7" style="--bx:92px;--by:-4px;--hx:46px;--hy:-2px;--fx:-133px;--fy:-108px;--mx:-20px;--my:-56px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.91" fill="#50B9C0" style="--bx:-29px;--by:113px;--hx:-14px;--hy:57px;--fx:39px;--fy:34px;--mx:5px;--my:74px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.24" fill="#8F67B8" style="--bx:-58px;--by:-205px;--hx:-29px;--hy:-102px;--fx:28px;--fy:129px;--mx:-15px;--my:-38px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.83" fill="#F4AF2F" style="--bx:208px;--by:71px;--hx:104px;--hy:36px;--fx:56px;--fy:202px;--mx:132px;--my:137px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.79" fill="#1685C7" style="--bx:-53px;--by:7px;--hx:-26px;--hy:4px;--fx:-179px;--fy:-181px;--mx:-116px;--my:-87px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.23" fill="#50B9C0" style="--bx:54px;--by:-87px;--hx:27px;--hy:-43px;--fx:20px;--fy:70px;--mx:37px;--my:-8px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.56" fill="#8F67B8" style="--bx:-20px;--by:208px;--hx:-10px;--hy:104px;--fx:-100px;--fy:90px;--mx:-60px;--my:149px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.32" fill="#F4AF2F" style="--bx:-154px;--by:-138px;--hx:-77px;--hy:-69px;--fx:51px;--fy:188px;--mx:-51px;--my:25px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.97" fill="#1685C7" style="--bx:165px;--by:-22px;--hx:83px;--hy:-11px;--fx:13px;--fy:-8px;--mx:89px;--my:-15px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.66" fill="#50B9C0" style="--bx:-35px;--by:41px;--hx:-17px;--hy:21px;--fx:-59px;--fy:15px;--mx:-47px;--my:28px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.32" fill="#8F67B8" style="--bx:9px;--by:-182px;--hx:5px;--hy:-91px;--fx:127px;--fy:59px;--mx:68px;--my:-61px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.18" fill="#F4AF2F" style="--bx:99px;--by:138px;--hx:50px;--hy:69px;--fx:-11px;--fy:210px;--mx:44px;--my:174px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.82" fill="#1685C7" style="--bx:-201px;--by:-54px;--hx:-100px;--hy:-27px;--fx:14px;--fy:-23px;--mx:-93px;--my:-38px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.82" fill="#50B9C0" style="--bx:63px;--by:-62px;--hx:32px;--hy:-31px;--fx:-43px;--fy:79px;--mx:10px;--my:9px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.91" fill="#8F67B8" style="--bx:-11px;--by:48px;--hx:-5px;--hy:24px;--fx:-48px;--fy:106px;--mx:-29px;--my:77px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.89" fill="#F4AF2F" style="--bx:-61px;--by:-83px;--hx:-30px;--hy:-41px;--fx:40px;--fy:196px;--mx:-10px;--my:57px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.91" fill="#1685C7" style="--bx:96px;--by:62px;--hx:48px;--hy:31px;--fx:-17px;--fy:-72px;--mx:40px;--my:-5px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.47" fill="#50B9C0" style="--bx:-185px;--by:49px;--hx:-92px;--hy:25px;--fx:-148px;--fy:5px;--mx:-166px;--my:27px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.41" fill="#8F67B8" style="--bx:56px;--by:-129px;--hx:28px;--hy:-64px;--fx:23px;--fy:138px;--mx:40px;--my:5px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.40" fill="#F4AF2F" style="--bx:66px;--by:169px;--hx:33px;--hy:85px;--fx:-38px;--fy:187px;--mx:14px;--my:178px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.79" fill="#1685C7" style="--bx:-112px;--by:-105px;--hx:-56px;--hy:-52px;--fx:-24px;--fy:-66px;--mx:-68px;--my:-85px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.71" fill="#50B9C0" style="--bx:218px;--by:-20px;--hx:109px;--hy:-10px;--fx:-130px;--fy:27px;--mx:44px;--my:4px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.07" fill="#8F67B8" style="--bx:-126px;--by:110px;--hx:-63px;--hy:55px;--fx:143px;--fy:75px;--mx:9px;--my:93px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.09" fill="#F4AF2F" style="--bx:-3px;--by:-38px;--hx:-1px;--hy:-19px;--fx:27px;--fy:219px;--mx:12px;--my:91px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.53" fill="#1685C7" style="--bx:17px;--by:19px;--hx:9px;--hy:10px;--fx:37px;--fy:-72px;--mx:27px;--my:-26px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.16" fill="#50B9C0" style="--bx:-194px;--by:-15px;--hx:-97px;--hy:-7px;--fx:-21px;--fy:61px;--mx:-107px;--my:23px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.85" fill="#8F67B8" style="--bx:58px;--by:-77px;--hx:29px;--hy:-38px;--fx:9px;--fy:136px;--mx:34px;--my:30px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.99" fill="#F4AF2F" style="--bx:24px;--by:132px;--hx:12px;--hy:66px;--fx:15px;--fy:200px;--mx:20px;--my:166px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.73" fill="#1685C7" style="--bx:-75px;--by:-171px;--hx:-37px;--hy:-85px;--fx:54px;--fy:-60px;--mx:-10px;--my:-115px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.82" fill="#50B9C0" style="--bx:36px;--by:6px;--hx:18px;--hy:3px;--fx:-53px;--fy:72px;--mx:-8px;--my:39px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.83" fill="#8F67B8" style="--bx:-138px;--by:50px;--hx:-69px;--hy:25px;--fx:-75px;--fy:91px;--mx:-106px;--my:71px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.67" fill="#F4AF2F" style="--bx:37px;--by:-209px;--hx:19px;--hy:-104px;--fx:34px;--fy:180px;--mx:36px;--my:-14px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.10" fill="#1685C7" style="--bx:12px;--by:42px;--hx:6px;--hy:21px;--fx:-65px;--fy:-58px;--mx:-26px;--my:-8px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.95" fill="#50B9C0" style="--bx:-29px;--by:-14px;--hx:-14px;--hy:-7px;--fx:151px;--fy:-22px;--mx:61px;--my:-18px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.13" fill="#8F67B8" style="--bx:205px;--by:-103px;--hx:103px;--hy:-51px;--fx:42px;--fy:128px;--mx:124px;--my:13px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.20" fill="#F4AF2F" style="--bx:-60px;--by:212px;--hx:-30px;--hy:106px;--fx:23px;--fy:218px;--mx:-18px;--my:215px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.69" fill="#1685C7" style="--bx:-25px;--by:-108px;--hx:-12px;--hy:-54px;--fx:-45px;--fy:-103px;--mx:-35px;--my:-105px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.14" fill="#50B9C0" style="--bx:60px;--by:58px;--hx:30px;--hy:29px;--fx:54px;--fy:27px;--mx:57px;--my:43px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.72" fill="#8F67B8" style="--bx:-213px;--by:-4px;--hx:-106px;--hy:-2px;--fx:-75px;--fy:83px;--mx:-144px;--my:40px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.72" fill="#F4AF2F" style="--bx:102px;--by:-125px;--hx:51px;--hy:-62px;--fx:-20px;--fy:198px;--mx:41px;--my:37px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.90" fill="#1685C7" style="--bx:33px;--by:127px;--hx:17px;--hy:64px;--fx:-76px;--fy:-66px;--mx:-21px;--my:31px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.13" fill="#50B9C0" style="--bx:-153px;--by:-123px;--hx:-76px;--hy:-61px;--fx:-140px;--fy:-25px;--mx:-146px;--my:-74px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.79" fill="#8F67B8" style="--bx:26px;--by:-3px;--hx:13px;--hy:-1px;--fx:-24px;--fy:121px;--mx:1px;--my:59px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.71" fill="#F4AF2F" style="--bx:-131px;--by:90px;--hx:-65px;--hy:45px;--fx:67px;--fy:199px;--mx:-32px;--my:145px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.16" fill="#1685C7" style="--bx:42px;--by:-159px;--hx:21px;--hy:-79px;--fx:-84px;--fy:-114px;--mx:-21px;--my:-136px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.64" fill="#50B9C0" style="--bx:106px;--by:88px;--hx:53px;--hy:44px;--fx:-145px;--fy:-4px;--mx:-19px;--my:42px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.89" fill="#8F67B8" style="--bx:-91px;--by:-13px;--hx:-45px;--hy:-6px;--fx:-59px;--fy:95px;--mx:-75px;--my:41px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.04" fill="#F4AF2F" style="--bx:21px;--by:-26px;--hx:11px;--hy:-13px;--fx:95px;--fy:173px;--mx:58px;--my:74px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.95" fill="#1685C7" style="--bx:-34px;--by:138px;--hx:-17px;--hy:69px;--fx:-155px;--fy:-131px;--mx:-94px;--my:4px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.71" fill="#50B9C0" style="--bx:-68px;--by:-150px;--hx:-34px;--hy:-75px;--fx:6px;--fy:75px;--mx:-31px;--my:-37px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.93" fill="#8F67B8" style="--bx:151px;--by:21px;--hx:76px;--hy:11px;--fx:64px;--fy:99px;--mx:108px;--my:60px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.45" fill="#F4AF2F" style="--bx:-104px;--by:20px;--hx:-52px;--hy:10px;--fx:54px;--fy:192px;--mx:-25px;--my:106px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.38" fill="#1685C7" style="--bx:20px;--by:-105px;--hx:10px;--hy:-52px;--fx:-60px;--fy:-97px;--mx:-20px;--my:-101px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.39" fill="#50B9C0" style="--bx:48px;--by:150px;--hx:24px;--hy:75px;--fx:-137px;--fy:-19px;--mx:-44px;--my:66px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.70" fill="#8F67B8" style="--bx:-106px;--by:-59px;--hx:-53px;--hy:-29px;--fx:40px;--fy:115px;--mx:-33px;--my:28px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.86" fill="#F4AF2F" style="--bx:213px;--by:3px;--hx:107px;--hy:2px;--fx:85px;--fy:184px;--mx:149px;--my:94px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.78" fill="#1685C7" style="--bx:-25px;--by:98px;--hx:-12px;--hy:49px;--fx:41px;--fy:-85px;--mx:8px;--my:7px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.16" fill="#50B9C0" style="--bx:-29px;--by:-59px;--hx:-14px;--hy:-29px;--fx:-135px;--fy:-23px;--mx:-82px;--my:-41px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.96" fill="#8F67B8" style="--bx:59px;--by:54px;--hx:30px;--hy:27px;--fx:66px;--fy:140px;--mx:63px;--my:97px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.65" fill="#F4AF2F" style="--bx:-148px;--by:-7px;--hx:-74px;--hy:-3px;--fx:58px;--fy:198px;--mx:-45px;--my:96px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.51" fill="#1685C7" style="--bx:97px;--by:-200px;--hx:49px;--hy:-100px;--fx:1px;--fy:-26px;--mx:49px;--my:-113px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="2.19" fill="#50B9C0" style="--bx:-16px;--by:186px;--hx:-8px;--hy:93px;--fx:-109px;--fy:-6px;--mx:-62px;--my:90px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.16" fill="#8F67B8" style="--bx:-62px;--by:-61px;--hx:-31px;--hy:-30px;--fx:-10px;--fy:126px;--mx:-36px;--my:33px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="0.69" fill="#F4AF2F" style="--bx:69px;--by:23px;--hx:35px;--hy:12px;--fx:71px;--fy:166px;--mx:70px;--my:95px"/>
+ <circle class="burst-dot" cx="360" cy="300" r="1.85" fill="#1685C7" style="--bx:-67px;--by:66px;--hx:-33px;--hy:33px;--fx:-154px;--fy:-154px;--mx:-110px;--my:-44px"/></g>
 <g class="feather-entrance feather-entrance--blue"><path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/></g>
 <g class="feather-entrance feather-entrance--teal"><path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/></g>
 <g class="feather-entrance feather-entrance--purple"><path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/></g>
