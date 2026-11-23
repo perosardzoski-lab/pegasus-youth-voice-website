@@ -7,44 +7,39 @@
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
  <radialGradient id="spark-glow"><stop stop-color="#F4AF2F" stop-opacity=".31"/><stop offset=".55" stop-color="#F4AF2F" stop-opacity=".13"/><stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/></radialGradient>
  <linearGradient id="trail-blue" gradientUnits="userSpaceOnUse" x1="75" y1="250" x2="360" y2="12"><stop offset="0" stop-color="#349FCB" stop-opacity="0"/><stop offset=".22" stop-color="#2289C3" stop-opacity=".12"/><stop offset=".58" stop-color="#1A84C2" stop-opacity=".46"/><stop offset="1" stop-color="#137BBD" stop-opacity=".95"/></linearGradient>
-<linearGradient id="wing-ribbon-blue" x1="90" y1="285" x2="360" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#096EAC" stop-opacity="0"/><stop offset=".35" stop-color="#117CB8" stop-opacity=".65"/><stop offset=".78" stop-color="#298EC5" stop-opacity=".92"/><stop offset="1" stop-color="#7ACBE2" stop-opacity=".12"/></linearGradient></defs>
+<linearGradient id="wing-ribbon-blue" x1="90" y1="285" x2="360" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#7ECDEB" stop-opacity="0"/><stop offset=".38" stop-color="#61B8DA" stop-opacity=".13"/><stop offset=".79" stop-color="#5EB5D8" stop-opacity=".23"/><stop offset="1" stop-color="#B0E9F4" stop-opacity="0"/></linearGradient></defs>
 <style>
-/* The Birth of a Voice v4 — cinematic particle-to-feather dissolve.
-   All 99 coloured dots originate at the original golden dot and settle
-   inside the four approved feather silhouettes. */
-.burst-dot{opacity:0;animation:particle-to-feather 5.75s cubic-bezier(.3,.63,.36,1) both}
+/* Pegasus Youth Voice · The Birth of a Voice — cinematic wind refinement.
+   The exact four approved feathers and all 999 particle destinations remain unchanged.
+   The wind brings the spark alive, then evaporates into the particle cloud. */
+.burst-dot{opacity:0;animation:particle-to-feather 7s cubic-bezier(.3,.65,.35,1) both}
 @keyframes particle-to-feather{
-  0%,12%{opacity:0;transform:translate(0,0) scale(.12)}
-  23%{opacity:.92;transform:translate(var(--hx),var(--hy)) scale(1.3)}
-  35%,48%{opacity:1;transform:translate(var(--bx),var(--by)) scale(1)}
-  62%{opacity:.94;transform:translate(var(--mx),var(--my)) scale(.98)}
-  79%{opacity:.68;transform:translate(var(--fx),var(--fy)) scale(.85)}
-  91%{opacity:.20;transform:translate(var(--fx),var(--fy)) scale(.52)}
-  100%{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.15)}
+  0%,27%{opacity:0;transform:translate(0,0) scale(.10)}
+  36%{opacity:.9;transform:translate(var(--hx),var(--hy)) scale(1.23)}
+  46%,55%{opacity:.92;transform:translate(var(--bx),var(--by)) scale(1)}
+  68%{opacity:.83;transform:translate(var(--mx),var(--my)) scale(.93)}
+  83%{opacity:.48;transform:translate(var(--fx),var(--fy)) scale(.72)}
+  95%{opacity:.13;transform:translate(var(--fx),var(--fy)) scale(.4)}
+  100%{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.12)}
 }
-.survivor-dot{transform-box:view-box;animation:survivor-journey 5.75s cubic-bezier(.36,.48,.3,1) both}
+/* One surviving original dot: the final particle, not a replacement introduced later. */
+.survivor-dot{transform-box:view-box;animation:survivor-journey 7s cubic-bezier(.36,.48,.3,1) both}
 @keyframes survivor-journey{
-  0%,12%{transform:translate(0,0)}
-  23%{transform:translate(-48px,-78px)}
-  35%,48%{transform:translate(-95px,-125px)}
-  69%{transform:translate(-48px,-202px)}
-  93%,100%{transform:translate(0,-288px)}
+  0%,27%{transform:translate(0,0)}
+  36%{transform:translate(-48px,-78px)}
+  46%,55%{transform:translate(-95px,-125px)}
+  72%{transform:translate(-48px,-202px)}
+  97%,100%{transform:translate(0,-288px)}
 }
-.spark-halo{transform-box:fill-box;transform-origin:center;animation:initial-glow 1s ease-out both}
-@keyframes initial-glow{0%{opacity:.15;transform:scale(.25)}45%{opacity:1;transform:scale(1.2)}100%{opacity:.58;transform:scale(.9)}}
-/* Soft cross-dissolve precisely overlaps dots landing on their feather forms. */
-.feather-entrance{opacity:0;animation:feather-materialize 2.2s cubic-bezier(.3,0,.23,1) forwards}
-.feather-entrance--blue{animation-delay:3.22s}
-.feather-entrance--teal{animation-delay:3.36s}
-.feather-entrance--purple{animation-delay:3.50s}
-.feather-entrance--gold{animation-delay:3.64s}
-@keyframes feather-materialize{
-  0%{opacity:0;filter:blur(5px)}
-  35%{opacity:.18;filter:blur(3px)}
-  68%{opacity:.69;filter:blur(1px)}
-  100%{opacity:1;filter:blur(0)}
-}
-/* The approved wing paths are unchanged; independent wind phases continue. */
+.spark-halo{transform-box:fill-box;transform-origin:center;animation:initial-glow 1.6s ease-in-out .65s both}
+@keyframes initial-glow{0%{opacity:.12;transform:scale(.4)}35%{opacity:.72;transform:scale(1.06)}58%{opacity:1;transform:scale(1.18)}100%{opacity:.55;transform:scale(.9)}}
+/* Crossfade begins as particles begin to travel into the silhouettes. */
+.feather-entrance{opacity:0;animation:feather-materialize 2.35s cubic-bezier(.24,.06,.2,1) forwards}
+.feather-entrance--blue{animation-delay:4.3s}
+.feather-entrance--teal{animation-delay:4.43s}
+.feather-entrance--purple{animation-delay:4.56s}
+.feather-entrance--gold{animation-delay:4.69s}
+@keyframes feather-materialize{0%{opacity:0;filter:blur(4px)}35%{opacity:.18;filter:blur(2.5px)}68%{opacity:.70;filter:blur(.8px)}100%{opacity:1;filter:blur(0)}}
 .feather{transform-box:view-box;animation:feather-wind 8.6s cubic-bezier(.44,0,.56,1) infinite}
 .feather--blue{transform-origin:173px 99px;animation-delay:-.9s}
 .feather--teal{transform-origin:167px 222px;animation-delay:-3s}
@@ -52,54 +47,38 @@
 .feather--gold{transform-origin:292px 469px;animation-delay:-6.5s}
 @keyframes feather-wind{
   0%,100%{transform:rotate(0deg) translate(0,0)}
-  17%{transform:rotate(-2.1deg) translate(1px,-4px)}
-  38%{transform:rotate(4.4deg) translate(4px,-9px)}
+  17%{transform:rotate(-1.8deg) translate(1px,-4px)}
+  38%{transform:rotate(3.8deg) translate(4px,-8px)}
   59%{transform:rotate(.5deg) translate(-1px,-3px)}
-  78%{transform:rotate(-2.8deg) translate(-2px,4px)}
-  91%{transform:rotate(1.5deg) translate(2px,-3px)}
+  78%{transform:rotate(-2.4deg) translate(-2px,4px)}
+  91%{transform:rotate(1.3deg) translate(2px,-3px)}
 }
-/* The trail begins at zero visible length. As the dot starts its orbit,
-   its blue fading ribbon extends smoothly behind it over the first 1.8s. */
-.orbit-tail path{stroke-dasharray:0 550;animation:tail-grow 1.8s cubic-bezier(.2,.64,.32,1) 5.75s forwards}
+/* The blue ribbon within the artwork should be a soft breath, not another line. */
+.wing-sweep{opacity:0;animation:sweep-visibility 2.75s ease-in-out .2s both}
+.wing-sweep path{stroke-dasharray:0 370;animation:ribbon-draw 1.5s cubic-bezier(.28,.04,.24,1) .2s forwards}
+.wing-sweep-glow{filter:blur(7px);stroke-width:11;stroke-opacity:.10}
+.wing-sweep-core{filter:blur(3px);stroke-width:3;stroke-opacity:.20}
+.wing-sweep-fine{stroke-opacity:.10;stroke-width:.7}
+@keyframes ribbon-draw{0%{stroke-dasharray:0 370}100%{stroke-dasharray:370 370}}
+@keyframes sweep-visibility{
+  0%{opacity:0}
+  18%{opacity:.24}
+  40%{opacity:.48}
+  62%{opacity:.25}
+  84%{opacity:.06}
+  100%{opacity:0}
+}
+/* Blue halo starts behind the surviving dot; never precedes its movement. */
+.orbit-tail path{stroke-dasharray:0 550;animation:tail-grow 2s cubic-bezier(.2,.64,.32,1) 7s forwards}
 @keyframes tail-grow{0%{stroke-dasharray:0 550}100%{stroke-dasharray:420 550}}
 .static-dot{display:none}
 @media(prefers-reduced-motion:reduce){
- .burst-dot,.survivor-dot,.spark-halo,.feather-entrance,.feather,.orbit-tail path{animation:none!important}
- .burst-dot,.survivor-dot{display:none!important}
- .feather-entrance,.feather{opacity:1!important;transform:none!important;filter:none!important}
- .orbit-traveller{display:none!important}
- .static-dot{display:inline!important}
+  .burst-dot,.survivor-dot,.spark-halo,.feather-entrance,.feather,.wing-sweep,.wing-sweep path,.orbit-tail path{animation:none!important}
+  .burst-dot,.survivor-dot,.wing-sweep{display:none!important}
+  .feather-entrance,.feather{opacity:1!important;transform:none!important;filter:none!important}
+  .orbit-traveller{display:none!important}
+  .static-dot{display:inline!important}
 }
-
-/* Wing-origin blue ribbon sweeps toward the single spark and triggers the burst. */
-.wing-sweep{opacity:0;animation:sweep-visibility 1.75s ease-in-out .06s both}
-.wing-sweep path{stroke-dasharray:0 370;animation:ribbon-draw .82s cubic-bezier(.2,.7,.22,1) .08s forwards}
-.wing-sweep-glow{filter:blur(4px)}
-@keyframes ribbon-draw{0%{stroke-dasharray:0 370}100%{stroke-dasharray:370 370}}
-@keyframes sweep-visibility{0%{opacity:0}14%{opacity:1}55%{opacity:1}100%{opacity:0}}
-/* A denser burst can still softly resolve into the actual four feather silhouettes. */
-.burst-dot{animation-duration:6.1s}
-.feather-entrance--blue{animation-delay:3.45s}
-.feather-entrance--teal{animation-delay:3.59s}
-.feather-entrance--purple{animation-delay:3.73s}
-.feather-entrance--gold{animation-delay:3.87s}
-@media(prefers-reduced-motion:reduce){.wing-sweep,.wing-sweep path{display:none!important;animation:none!important}}
-
-/* v5: 999 particles emerge from the centre; the original golden dot survives. */
-.burst-dot{animation-duration:6.25s}
-@keyframes particle-to-feather{
-0%,11%{opacity:0;transform:translate(0,0) scale(.1)}
-21%{opacity:1;transform:translate(var(--hx),var(--hy)) scale(1.35)}
-34%,46%{opacity:1;transform:translate(var(--bx),var(--by)) scale(1)}
-60%{opacity:.95;transform:translate(var(--mx),var(--my)) scale(.94)}
-76%{opacity:.76;transform:translate(var(--fx),var(--fy)) scale(.81)}
-91%{opacity:.24;transform:translate(var(--fx),var(--fy)) scale(.45)}
-100%{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.12)}
-}
-.feather-entrance--blue{animation-delay:3.6s}
-.feather-entrance--teal{animation-delay:3.74s}
-.feather-entrance--purple{animation-delay:3.88s}
-.feather-entrance--gold{animation-delay:4.02s}
 </style>
 <g class="wing-sweep" aria-hidden="true">
  <path class="wing-sweep-glow" d="M100 282 C176 172 272 204 360 300" stroke="#7ACBE2" stroke-width="18" stroke-opacity=".19" stroke-linecap="round" fill="none"/>
@@ -1109,7 +1088,7 @@
 <g class="feather-entrance feather-entrance--gold"><path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/></g>
 <g class="orbit-traveller" aria-hidden="true">
  <g>
-  <animateTransform attributeName="transform" type="rotate" from="0 360 300" to="360 360 300" begin="5.75s" dur="11s" repeatCount="indefinite"/>
+  <animateTransform attributeName="transform" type="rotate" from="0 360 300" to="360 360 300" begin="7s" dur="11s" repeatCount="indefinite"/>
   <g class="orbit-tail">
    <!-- Head-first arc: its visible length begins at zero, then unfurls behind the moving dot. -->
    <path d="M360 12 A288 288 0 0 0 76.4 250" stroke="url(#trail-blue)" stroke-width="4.2" stroke-linecap="round" fill="none"/>
