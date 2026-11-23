@@ -63,3 +63,7 @@ The organisation approved the final youth-centred image direction. Use the **sam
 Final PNG binaries were prepared as a downloadable ZIP package in the associated ChatGPT conversation. **They have not yet been written to GitHub by the available connector and therefore are NOT deployed until those binaries are uploaded.** Do not mark deployment complete on the basis of this note.
 
 The shared stylesheet `assets/get-involved.css` already has an aspect-ratio-safe override (`height:auto;aspect-ratio:auto;object-fit:contain`) for desktop and mobile. Verify all four images after uploading at 320px, 390px, 768px and desktop widths. Keep the real approved Pegasus emblem unchanged; avoid reproducing a logo on the photos. Image set is locked pending binary deployment and live verification.
+
+
+### Approved image deployment completed — 23 November 2026
+Commit `19e60c01cb1dd00fb55d53308b8ea5f80c83e8f7` on `main` added the four final compressed WebP image assets and updated the three Get Involved language pages and shared stylesheet to reference them. The previously listed PNG files remain in the repository but are no longer referenced by these sections. This supersedes the preceding pending-binary-upload note. Image dimensions remain 1600×800 (hero), 1200×984 (card sprite), 1800×600 (steps strip), and 1536×1024 (form photo). Image proportions are protected by `get-involved.css`. Cloudflare Pages build/deployment and live browser rendering still require confirmation before declaring full production verification. No official-domain/DNS changes were made.
