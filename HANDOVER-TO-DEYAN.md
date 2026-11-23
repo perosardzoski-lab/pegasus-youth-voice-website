@@ -51,3 +51,15 @@ Status: **Content cleanup committed; NOT approved for official public launch.**
 - Existing images, logos, and photos
 
 **Status for handover:** Website content is substantially cleaned up for review, but the domain, indexing, compliance, testing and owner sign-off remain launch blockers.
+
+
+## Approved and locked Get Involved imagery — 23 November 2026
+The organisation approved the final youth-centred image direction. Use the **same four shared binary assets** for English, Macedonian and Albanian; the three HTML variants already point to the same paths:
+- `assets/get-involved-hero.png` — 1600 × 800, approved two students working at a laptop
+- `assets/get-involved-participation.png` — 1200 × 984; exact 2×2 card sprite (classroom dialogue, environmental action, city photography, podcast)
+- `assets/get-involved-steps.png` — 1800 × 600; three-photo strip (city, park, classroom)
+- `assets/get-involved-form-support.png` — 1536 × 1024; café conversation before membership form
+
+Final PNG binaries were prepared as a downloadable ZIP package in the associated ChatGPT conversation. **They have not yet been written to GitHub by the available connector and therefore are NOT deployed until those binaries are uploaded.** Do not mark deployment complete on the basis of this note.
+
+The shared stylesheet `assets/get-involved.css` already has an aspect-ratio-safe override (`height:auto;aspect-ratio:auto;object-fit:contain`) for desktop and mobile. Verify all four images after uploading at 320px, 390px, 768px and desktop widths. Keep the real approved Pegasus emblem unchanged; avoid reproducing a logo on the photos. Image set is locked pending binary deployment and live verification.
