@@ -455,3 +455,19 @@ img,svg,video{max-width:100%}
   width:96px;height:80px;margin-bottom:14px;
  }
 }
+
+
+/* About Us v6: minimalist pastel cards without icons; scoped to About only. */
+.pyv-about-enhanced .section .cards .about-value-card{
+  padding-top:clamp(28px,3vw,38px);
+}
+.pyv-about-enhanced .section .cards .about-value-card h3{
+  margin-top:0;
+  margin-bottom:16px;
+}
+.pyv-about-enhanced .section .cards .about-value-card p{
+  margin-bottom:0;
+}
+@media(max-width:700px){
+  .pyv-about-enhanced .section .cards .about-value-card{padding-top:24px}
+}
