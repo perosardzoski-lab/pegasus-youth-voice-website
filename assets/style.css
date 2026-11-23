@@ -615,3 +615,14 @@ img,svg,video{max-width:100%}
 .blog-backlink{margin-top:43px}.blog-backlink a{color:#087E91;font-weight:700}
 @media(max-width:750px){.blog-feature{grid-template-columns:1fr}.blog-feature-symbol{min-height:180px}.blog-feature-content{padding:27px}.blog-feature-glyph{font-size:75px}.blog-story-cta{padding:27px}}
 @media(max-width:490px){.blog-article-actions .btn,.blog-cta-actions .btn{width:100%;text-align:center}.blog-story-form-area{padding:22px}}
+
+
+/* Approved inaugural Youth Voice article visual and secure story form, v2. */
+.blog-post-featured{margin:2px 0 51px}
+.blog-post-featured img{display:block;width:100%;height:auto;aspect-ratio:1672 / 941;object-fit:cover;border-radius:19px;box-shadow:0 15px 35px rgba(14,61,99,.10)}
+.blog-post-featured figcaption{font-size:12px;line-height:1.6;margin-top:12px;color:#667E8B}
+.blog-story-form button:disabled{opacity:.56;cursor:not-allowed;transform:none}
+.blog-story-form .blog-story-consent{display:flex;align-items:flex-start;gap:12px;margin:1px 0 13px;font-weight:500;line-height:1.65;font-size:13px;cursor:pointer}
+.blog-story-form .blog-story-consent input{width:18px;height:18px;flex:0 0 18px;margin:2px 0 0;accent-color:#087E91}
+.blog-story-form .blog-story-consent span{flex:1}
+.blog-story-form .blog-honey{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;pointer-events:none}
