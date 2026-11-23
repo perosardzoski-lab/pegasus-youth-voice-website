@@ -33,10 +33,21 @@
    const meta=textEl("p",item.display_name+" · "+item.category+" · "+item.locale+" · "+item.status,"editorial-meta");
    const body=textEl("div",item.body,"editorial-submission-body");
    details.replaceChildren(title,meta,body);
+   if(data.images?.length){
+    const gallery=document.createElement("div");gallery.className="editorial-image-list";
+    gallery.append(textEl("h4","Submitted photographs"));
+    for(const photo of data.images){
+     const link=document.createElement("a");link.href="/api/editorial/image/"+encodeURIComponent(photo.id);link.target="_blank";link.rel="noopener noreferrer";
+     link.textContent=photo.original_name+" · "+Math.ceil(photo.byte_size/1024)+" KB (open securely)";
+     gallery.append(link);
+    }
+    details.append(gallery);
+   }
    decision.value=["submitted","published"].includes(item.status)?"reviewing":item.status;
    notes.value=item.editor_notes||"";
    const approved=decision.querySelector('option[value="approved"]');
    approved.disabled=role!=="admin";
+   decision.querySelector('option[value="rejected"]').disabled=role!=="admin";
    if(role!=="admin"&&decision.value==="approved")decision.value="reviewing";
    form.hidden=false;
   }catch{details.replaceChildren(textEl("p","Unable to load this submission."));form.hidden=true}
