@@ -350,3 +350,87 @@ img,svg,video{max-width:100%}
 @media(prefers-reduced-motion:reduce){
   .hero-wing-frame .wing-composition .particle-canvas{display:none!important}
 }
+
+
+/* Pegasus Youth Voice · approved About Us colour refinement (EN/MK/SQ).
+   Scoped to About only. Existing typography, section order and text unchanged. */
+.pyv-about-enhanced .pagehero-v5{
+  background:linear-gradient(113deg,#fff 5%,#fbfdff 66%,#f4fbff);
+}
+.pyv-about-enhanced .about-colour-accents{
+  display:flex;align-items:center;gap:5px;width:198px;max-width:60%;
+  margin:-9px 0 23px;pointer-events:none;
+}
+.pyv-about-enhanced .about-colour-accents span{
+  height:4px;border-radius:99px;flex:1;box-shadow:0 1px 2px rgba(9,82,122,.06);
+}
+.pyv-about-enhanced .about-colour-accents span:nth-child(1){background:#0879BF}
+.pyv-about-enhanced .about-colour-accents span:nth-child(2){background:#1CB9B4}
+.pyv-about-enhanced .about-colour-accents span:nth-child(3){background:#9764C5}
+.pyv-about-enhanced .about-colour-accents span:nth-child(4){background:#F2A92D}
+.pyv-about-enhanced .pagehero-watermark{opacity:1}
+.pyv-about-enhanced .pagehero-watermark img{
+  filter:saturate(1.24);
+  transform:rotate(-7deg) scale(1.09);
+  transform-origin:center;
+}
+.pyv-about-enhanced .section .cards{align-items:stretch}
+.pyv-about-enhanced .section .cards .about-value-card{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid var(--about-border);
+  border-top:3px solid var(--about-accent);
+  background:linear-gradient(145deg,var(--about-light) 0%,var(--about-base) 84%);
+  border-radius:18px;min-height:315px;
+  box-shadow:0 10px 26px rgba(15,74,124,.055);
+  transition:box-shadow .3s ease,transform .3s ease,border-color .3s ease;
+}
+.pyv-about-enhanced .section .cards .about-value-card--mission{
+  --about-accent:#1687C8;--about-light:#E8F4FE;--about-base:#F2F9FF;
+  --about-border:#CFE6FA;--about-ink:#0D65AB;
+}
+.pyv-about-enhanced .section .cards .about-value-card--vision{
+  --about-accent:#9A64C8;--about-light:#F3EAFC;--about-base:#FAF6FF;
+  --about-border:#E2D4F5;--about-ink:#8253AE;
+}
+.pyv-about-enhanced .section .cards .about-value-card--principles{
+  --about-accent:#20B4B1;--about-light:#E7F8F7;--about-base:#F3FCFB;
+  --about-border:#C9EBE8;--about-ink:#087E85;
+}
+.pyv-about-enhanced .section .cards .about-value-card::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;left:-9%;right:-7%;bottom:-59px;height:108px;
+  transform:rotate(-8deg);border-radius:48% 52% 0 0;
+  background:linear-gradient(100deg,transparent,var(--about-accent));
+  opacity:.10;
+}
+.pyv-about-enhanced .section .cards .about-value-card::before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:150px;height:150px;right:-88px;top:-110px;transform:rotate(34deg);
+  background:var(--about-accent);opacity:.065;border-radius:30px;
+}
+.pyv-about-enhanced .about-card-icon{
+  display:block;width:72px;height:72px;margin:0 0 18px;
+  color:var(--about-ink);filter:drop-shadow(0 3px 4px rgba(39,95,142,.08));
+}
+.pyv-about-enhanced .section .cards .about-value-card h3{
+  color:var(--about-ink);margin-bottom:14px;
+}
+.pyv-about-enhanced .section .cards .about-value-card p{
+  color:#38536C;position:relative;z-index:1;
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .pyv-about-enhanced .section .cards .about-value-card:hover{
+    transform:translateY(-3px);box-shadow:0 14px 35px rgba(15,74,124,.095);
+  }
+}
+@media(max-width:1050px){
+  .pyv-about-enhanced .section .cards .about-value-card{min-height:0}
+}
+@media(max-width:700px){
+  .pyv-about-enhanced .pagehero-watermark img{transform:none}
+  .pyv-about-enhanced .about-colour-accents{width:164px;margin:1px 0 19px}
+  .pyv-about-enhanced .section .cards .about-value-card{min-height:0}
+  .pyv-about-enhanced .about-card-icon{width:60px;height:60px;margin-bottom:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .pyv-about-enhanced .section .cards .about-value-card{transition:none}
+}
