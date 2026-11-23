@@ -76,3 +76,41 @@
 @media(max-width:580px){
   .gi-hero-media img{aspect-ratio:auto;object-fit:contain}
 }
+
+
+/* Final approved Get Involved refinements — visual steps + distortion-free mobile cards.
+   The desktop card images and existing photography are deliberately unchanged. */
+.gi-process-graphic{max-width:1160px;margin-inline:auto}
+.gi-process-heading{text-align:center;margin-bottom:34px}
+.gi-process-heading h2{margin-bottom:0}
+.gi-step-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;position:relative}
+.gi-step-card{min-width:0;padding:28px 26px 27px;border:1px solid #dceaf0;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(10,67,108,.045);position:relative}
+.gi-step-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.gi-step-icon{display:grid;place-items:center;width:74px;height:74px;border-radius:22px;background:#eaf6f8;color:#087e91}
+.gi-step-icon-2{background:#f0ecf8;color:#805cb2}
+.gi-step-icon-3{background:#f9f1e3;color:#b5772a}
+.gi-step-icon svg{width:43px;height:43px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gi-step-number{font:800 18px/1.2 Manrope,Arial,sans-serif;color:#9aafbe;letter-spacing:.02em}
+.gi-step-card h3{font-size:clamp(18px,1.8vw,22px);margin:0 0 10px;color:#174a76;overflow-wrap:break-word}
+.gi-step-card p{font-size:15px;line-height:1.7;color:#526b7b;margin:0}
+.gi-process-note{max-width:920px;margin:28px auto 0;text-align:center}
+@media(max-width:700px){
+  .gi-process-heading{text-align:left;margin-bottom:24px}
+  .gi-step-grid{grid-template-columns:1fr;gap:17px;padding-left:15px}
+  .gi-step-grid::before{content:"";position:absolute;left:0;top:36px;bottom:36px;width:2px;background:linear-gradient(#20a9a2,#805cb2,#d5a047)}
+  .gi-step-card{padding:20px 22px}
+  .gi-step-card::before{content:"";position:absolute;left:-21px;top:33px;width:10px;height:10px;background:#fff;border:2px solid #20a9a2;border-radius:50%}
+  .gi-step-card:nth-child(2)::before{border-color:#805cb2}
+  .gi-step-card:nth-child(3)::before{border-color:#d5a047}
+  .gi-step-icon{width:62px;height:62px;border-radius:18px}
+  .gi-step-icon svg{width:36px;height:36px}
+  .gi-step-top{margin-bottom:12px}
+  .gi-process-note{text-align:left;font-size:14px}
+  /* Approved card sprite is 2x2, with native panel ratio 600:492.
+     Render each panel as a square crop without stretching its pixels. */
+  .gi-card-art{aspect-ratio:1/1;background-size:auto 200%;background-repeat:no-repeat}
+  .gi-card-art.p1{background-position:0% 0%}
+  .gi-card-art.p2{background-position:100% 0%}
+  .gi-card-art.p3{background-position:0% 100%}
+  .gi-card-art.p4{background-position:100% 100%}
+}
