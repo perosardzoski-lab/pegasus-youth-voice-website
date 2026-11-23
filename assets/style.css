@@ -408,7 +408,7 @@ img,svg,video{max-width:100%}
   background:var(--about-accent);opacity:.065;border-radius:30px;
 }
 .pyv-about-enhanced .about-card-icon{
-  display:block;width:72px;height:72px;margin:0 0 18px;
+  display:block;width:82px;height:82px;margin:0 0 16px;
   color:var(--about-ink);filter:drop-shadow(0 3px 4px rgba(39,95,142,.08));
 }
 .pyv-about-enhanced .section .cards .about-value-card h3{
