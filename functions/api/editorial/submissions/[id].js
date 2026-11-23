@@ -7,7 +7,8 @@ export async function onRequestGet({request,env,params}){
  try{
   const v=await env.EDITORIAL_DB.prepare("SELECT id,title,category,locale,display_name,reply_email,body,status,editor_notes,submitted_at,updated_at,approved_by FROM editorial_submissions WHERE id = ?").bind(id).first();
   if(!v)return json({ok:false,error:"not_found"},404);
-  return json({ok:true,item:v});
+  const images=await env.EDITORIAL_DB.prepare("SELECT id,original_name,mime_type,byte_size,position FROM editorial_images WHERE submission_id = ? ORDER BY position ASC").bind(id).all();
+  return json({ok:true,item:v,images:images.results||[]});
  }catch{return json({ok:false,error:"storage_unavailable"},503)}
 }
 export async function onRequestPatch({request,env,params}){
