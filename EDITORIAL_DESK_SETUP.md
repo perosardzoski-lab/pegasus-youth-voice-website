@@ -16,8 +16,9 @@ Public website, public blogs, domain/DNS and noindex settings remain unchanged u
 - Blog landing pages in EN/MK/SQ include both quick story-idea and full-article contributor options.
 
 ## Role structure (starting team)
+The designated Administrator uses an individual personal email account. The organisation's official inbox remains the notification/correspondence destination and must **not** become a shared Editor login.
 - One administrator/editor-in-chief: may review, approve or decline and manage approval decisions.
-- Two invited reviewers: may inspect submissions, mark reviewing, request changes. Cannot approve.
+- Reviewer roles are **vacant initially**. Invite youth workers or youth editors later using their own individual email addresses. Reviewers may inspect submissions, mark reviewing, and request changes. They cannot approve.
 - Contributors: use the public submission page; **individual draft accounts and private contributor history are NOT implemented yet**.
 
 Nobody is an editor by default. **No email accounts have been added**, because the owner has not supplied the email addresses. Do not use the public editorial address as a shared password or as an automatic editor account.
@@ -27,21 +28,21 @@ Nobody is an editor by default. **No email accounts have been added**, because t
    - `/editorial/*`
    - `/api/editorial/*`
    Apply policies to **every production/preview/custom hostname actually used**. Do not restrict all public blog pages.
-2. Allow exactly one Administrator's email and two reviewer email addresses. Use email one-time PIN or an identity provider with MFA. Never use an Everyone/Bypass policy for editorial URLs.
+2. Initially allow **only the nominated Administrator's individual account** in the Cloudflare Access application. Leave reviewer access unassigned. Use email one-time PIN or an identity provider with MFA. Never use an Everyone/Bypass policy for editorial URLs. The institutional editorial inbox is NOT a shared authentication account.
 3. Obtain the Access **team domain** (e.g. `your-team.cloudflareaccess.com`) and **Application Audience (AUD)**. If multiple Access applications are created, the editorial API's JWT audience must correspond to the API's application. Do not assume the values are interchangeable.
 4. Workers & Pages → Pegasus Youth Voice Pages project → Settings → Variables and Secrets → Production:
    - `EDITORIAL_ENABLED` = `true`
    - `ACCESS_TEAM_DOMAIN` = actual team domain
    - `ACCESS_AUD` = matching Access app AUD
-   - `EDITOR_ADMIN_EMAILS` = exact Administrator email (no default)
-   - `EDITOR_REVIEWER_EMAILS` = two exact reviewer email addresses (separated by commas)
+   - `EDITOR_ADMIN_EMAILS` = the approved Administrator's individual email (no default; enter privately in Cloudflare, not GitHub)
+   - `EDITOR_REVIEWER_EMAILS` = empty initially; later list individual editor emails, separated by commas
    Configure both a Cloudflare Access allow policy and these **server-side** role allowlists. A person must pass BOTH.
 5. Create a Cloudflare D1 database and apply `editorial/schema.sql`. Bind it to Pages Functions as `EDITORIAL_DB`.
 6. Create a **private** Cloudflare R2 bucket (no public bucket URL); bind it as `EDITORIAL_R2`.
 7. Create a Cloudflare Turnstile widget for the actual deployed website hostnames. Add `TURNSTILE_SITE_KEY` (public) and `TURNSTILE_SECRET_KEY` (secret). Keep the secret outside the repository.
 8. To enable full-article intake only after steps 5–7 and testing, set `EDITORIAL_INTAKE_ENABLED` = `true`. Until then, intake must remain disabled.
 9. Email notifications (optional but recommended): provide `RESEND_API_KEY`, `STORY_FROM_EMAIL` (verified sender), `STORY_TO_EMAIL` = `pegasusyouthvoice@gmail.com`; the article text/images remain in the private database/bucket, and notification email contains a brief summary and reference only.
-10. Redeploy production, check `GET /api/editorial/session` as admin, as reviewer, as an unlisted person, and with no Access token. Only listed identities may access data.
+10. Redeploy production, check `GET /api/editorial/session` as Administrator, as an unlisted person, and with no Access token. When reviewers are subsequently invited, also test reviewer permissions and ensure they cannot approve. Only explicitly listed identities may access data.
 11. Submit a **test article with fictional information only**. Check D1 row, image access permissions, review status and event history. Confirm public URLs never reveal private content.
 12. Validate live security, mobile layout, accessibility, data-retention policy and safeguarding before requesting submissions from minors.
 
@@ -67,3 +68,9 @@ Nobody is an editor by default. **No email accounts have been added**, because t
 - This account has a GitHub connection, not a connected Cloudflare administrative tool. Cloudflare Access, D1, R2, Turnstile, DNS, and secret variables cannot be configured from the available GitHub connection.
 - Do **not** place email allowlists, private user addresses, secret keys or access credentials in the repository.
 - Preserve the prelaunch noindex policy and official domain. No production go-live or DNS changes were requested.
+
+## Agreed account assignment (do not publish email addresses in the repository)
+- Administrator / Editor-in-Chief: **one named individual personal account**, entered only in Cloudflare's private `EDITOR_ADMIN_EMAILS` setting.
+- Official editorial inbox: **organisation-owned correspondence account**, entered privately as `STORY_TO_EMAIL`; it does not grant dashboard access.
+- Reviewers: **none initially**, invite separately with their own accounts when selected.
+- Only the Administrator can approve. Public intake and one-click publishing stay disabled until infrastructure is tested.
