@@ -684,3 +684,31 @@ img,svg,video{max-width:100%}
     object-fit:cover;
   }
 }
+
+
+/* Editorial Desk: read-only publicly served shell, private API always requires verified Access JWT. */
+.editorial-body{background:#F7FAFC}
+.editorial-shell{width:min(1160px,calc(100% - 40px));margin:0 auto;padding:65px 0}
+.editorial-brand{display:flex;align-items:center;gap:12px;color:#0D5DA0;font-weight:800;line-height:1.1;font-size:15px;margin-bottom:45px}
+.editorial-shell>h1{font-size:clamp(36px,5vw,56px);color:#0D5DA0}
+.editorial-notice{padding:16px 20px;background:#ECF6FB;border:1px solid #D0E6F1;border-radius:12px;line-height:1.6;max-width:850px}
+.editorial-profile,.editorial-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.editorial-profile{margin-top:20px;color:#305B77}.editorial-profile strong{color:#087E88}
+.editorial-toolbar{margin:37px 0 12px}.editorial-toolbar h2{font-size:30px;margin:0}
+.editorial-help{color:#597183;max-width:840px;line-height:1.7}
+.editorial-layout{display:grid;grid-template-columns:minmax(240px,1fr) minmax(0,1.5fr);gap:22px;margin-top:20px}
+.editorial-panel{background:#fff;border:1px solid #DCEBF2;border-radius:16px;padding:25px;min-height:340px}
+.editorial-panel h3{font-size:22px;color:#0D5DA0;margin:0 0 18px}
+.editorial-inbox{display:grid;gap:10px}
+.editorial-inbox-item{display:grid;text-align:left;gap:8px;width:100%;background:#F7FBFE;border:1px solid #E0EDF3;border-radius:10px;padding:15px;color:#1B4E72;cursor:pointer}
+.editorial-inbox-item:hover{border-color:#1CB9B4}
+.editorial-inbox-item small,.editorial-meta{font-size:12px;color:#678092}
+.editorial-panel h4{font-size:21px;margin:8px 0;color:#12537D}
+.editorial-submission-body{white-space:pre-wrap;line-height:1.8;max-height:450px;overflow:auto;border-top:1px solid #E2EDF2;padding-top:18px;margin:20px 0}
+.editorial-panel label{display:block;font-weight:700;color:#12537D;margin:18px 0 8px}
+.editorial-panel textarea,.editorial-panel select{width:100%;padding:13px;border-radius:9px;border:1px solid #BCD6E2;font:inherit}
+.editorial-panel button[type=submit],.editorial-toolbar button{background:#0D5DA0;color:white;border:0;border-radius:100px;padding:12px 19px;font:inherit;font-weight:700;cursor:pointer}
+.editorial-panel button[type=submit]{margin-top:18px}
+.editorial-foot{margin-top:45px;font-size:13px;color:#678092}
+.editorial-foot a{color:#0D5DA0}
+@media(max-width:780px){.editorial-layout{grid-template-columns:1fr}.editorial-shell{padding-top:40px}}
