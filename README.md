@@ -3,16 +3,16 @@
 Trilingual static website: English (`/en/`), Macedonian (`/mk/`), Albanian (`/sq/`).
 
 ## Status
-Development preview only. The Version 5 visual direction has been approved, but content and features still require review. No real blog articles have been published. Do not remove noindex restrictions until final launch approval.
+Content and responsive presentation cleaned up for owner review. There are no published blog articles yet; the Blog invites story ideas. The official launch still requires domain setup, legal/safeguarding review, form and media checks, and final sign-off. Do not remove noindex restrictions until final launch approval. See [HANDOVER-TO-DEYAN.md](HANDOVER-TO-DEYAN.md).
 
 ## Hosting
 Cloudflare Pages, connected to this GitHub repository. Choose Pages (not Workers), framework preset `None`, production branch `main`, build command blank, output directory `.`.
 
 ## Preview links
-Cloudflare assigns a `*.pages.dev` URL after deployment. The project name `pegasus-youth-voice` is suggested, but not guaranteed available.
+Cloudflare assigns a `*.pages.dev` URL after deployment. Current development preview: https://pegasus-youth-voice-website.pages.dev/en/ (verify live deployment separately).
 
 ## Domains
-The intended final domain is `pegasusyouthvoice.com`. **Do not connect it or modify DNS during development.**
+The approved intended public hostname is `www.pegasusyouthvoice.com`. **Do not connect it or modify DNS until the owner authorises the official launch.**
 
 ## Updates
 Use feature branches and pull requests for unapproved changes. Publish approved changes to `main` only after review.
@@ -24,4 +24,4 @@ Use feature branches and pull requests for unapproved changes. Publish approved 
 - `robots.txt`: search indexing disabled during development
 
 ## Attention
-Contact details, translations, privacy/cookies, accessibility, links, and blog publishing functionality need final approval. The blog currently has an empty state, not a content management system.
+Contact details are present in all three languages. Translation QA, privacy/cookies, safeguarding, accessibility, links, membership form processing and any future blog-publishing functionality still require final review. The Blog has no published posts or content management system; it has a public story-idea invitation. See the handover checklist.
