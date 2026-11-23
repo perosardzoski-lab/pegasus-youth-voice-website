@@ -19,7 +19,7 @@ export async function onRequestPost({request,env}){
  if(!origin||origin!==new URL(request.url).origin)return json({ok:false,error:"origin_denied"},403);
  let form;try{form=await request.formData()}catch{return json({ok:false,error:"invalid_format"},400)}
  if(form.get("website"))return json({ok:true},202);
- const title=clean(form.get("title")),body=clean(form.get("body")),category=clean(form.get("category")),
+ const title=clean(form.get("title")),body=String(form.get("body")||"").replace(/\\r\\n/g,"\\n").trim(),category=clean(form.get("category")),
  locale=clean(form.get("locale")),displayName=clean(form.get("display_name")),email=clean(form.get("email"));
  if(title.length<5||title.length>140||body.length<150||body.length>15000||displayName.length<2||displayName.length>90||
     !categories.has(category)||!["en","mk","sq"].includes(locale)||!/^\S+@\S+\.\S+$/.test(email)||email.length>150||
