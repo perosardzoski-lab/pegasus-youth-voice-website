@@ -270,3 +270,36 @@ img,svg,video{max-width:100%}
 @media(prefers-reduced-motion:reduce){
   .hero-flight-line{display:none!important}
 }
+
+
+/* Cinematic wind v7 — subtle transparent air, never an opaque banner.
+   The breeze reaches the wing and disappears exactly as the spark blooms. */
+.hero-flight-line{filter:none;opacity:1}
+.hero-flight-stroke,.hero-flight-aura{
+  stroke-dasharray:1000;
+  stroke-dashoffset:1000;
+  animation:pyv-wind-breathe 2.95s cubic-bezier(.27,.05,.24,1) .05s both;
+}
+.hero-flight-aura{filter:blur(8px);stroke-opacity:.11;animation-delay:.11s}
+.hero-flight-stroke{filter:blur(2.1px);stroke-opacity:.5}
+@keyframes pyv-wind-breathe{
+  0%{stroke-dashoffset:1000;opacity:0}
+  15%{opacity:.15}
+  48%{stroke-dashoffset:200;opacity:.48}
+  62%{stroke-dashoffset:0;opacity:.55}
+  73%{stroke-dashoffset:0;opacity:.25}
+  100%{stroke-dashoffset:0;opacity:0}
+}
+.hero-flight-banner{
+  opacity:0;
+  transform-origin:top right;
+  animation:pyv-wind-dissolve 2.9s cubic-bezier(.32,0,.3,1) .15s both;
+}
+@keyframes pyv-wind-dissolve{
+  0%{opacity:0;transform:translateY(-5px) scaleY(.7)}
+  38%{opacity:.16;transform:translateY(0) scaleY(1)}
+  57%{opacity:.20;transform:translateY(0) scaleY(1.04)}
+  78%{opacity:.07;transform:translateY(2px) scaleY(1.06)}
+  100%{opacity:0;transform:translateY(4px) scaleY(1.09)}
+}
+@media(prefers-reduced-motion:reduce){.hero-flight-line{display:none!important}}
