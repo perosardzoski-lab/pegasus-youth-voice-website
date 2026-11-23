@@ -49,3 +49,30 @@
   .gi-formbox iframe{width:100%;max-width:100%;min-height:1380px}
   .gi-form-actions .btn{max-width:100%;text-align:center}
 }
+
+/* Desktop and mobile: preserve native aspect ratios for every Get Involved photo.
+   This affects all language versions through their shared stylesheet. */
+.gi-hero-media img{
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  max-height:none;
+}
+.gi-process img,
+.gi-formlead img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  max-height:none;
+}
+.gi-formlead img{max-width:min(100%,470px)}
+@media(max-width:980px){
+  .gi-hero-media img{aspect-ratio:auto;object-fit:contain}
+  .gi-formlead img{max-width:min(100%,560px)}
+}
+@media(max-width:580px){
+  .gi-hero-media img{aspect-ratio:auto;object-fit:contain}
+}
