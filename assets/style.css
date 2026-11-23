@@ -247,3 +247,26 @@ img,svg,video{max-width:100%}
     transform:none;
   }
 }
+
+
+/* Birth of a Voice: full-width blue wing line crosses ABOVE the landing headline,
+   meets the spark on the right, then unfurls a fading translucent blue banner. */
+.hero{isolation:isolate}
+.hero .hero-grid{position:relative;z-index:2}
+.hero-flight-line{position:absolute;left:0;top:0;width:100%;height:420px;z-index:1;pointer-events:none;overflow:visible}
+.hero-flight-stroke,.hero-flight-aura{stroke-dasharray:1000;stroke-dashoffset:1000;animation:pyv-flight-draw 1.65s cubic-bezier(.37,.04,.35,1) .05s forwards}
+.hero-flight-aura{animation-delay:.12s;opacity:.65}
+@keyframes pyv-flight-draw{0%{stroke-dashoffset:1000;opacity:.2}80%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.hero-flight-banner{opacity:0;transform-origin:top right;animation:pyv-banner-bloom 5.5s ease-out 1.5s both}
+@keyframes pyv-banner-bloom{
+  0%{opacity:0;transform:translateY(-15px) scaleY(.25)}
+  25%{opacity:.83;transform:translateY(0) scaleY(1)}
+  46%{opacity:.55;transform:translateY(2px) scaleY(.95)}
+  100%{opacity:0;transform:translateY(7px) scaleY(1.08)}
+}
+/* Below desktop width the original SVG contains the same wing-to-spark
+   cue, avoiding a horizontal line across the narrow stacked headline. */
+@media(max-width:1050px){.hero-flight-line{display:none}}
+@media(prefers-reduced-motion:reduce){
+  .hero-flight-line{display:none!important}
+}
