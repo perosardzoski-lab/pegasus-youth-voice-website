@@ -4,11 +4,73 @@
  <linearGradient id="blue" x1="150" y1="80" x2="530" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#0769B5"/><stop offset="1" stop-color="#268BD2"/></linearGradient>
  <linearGradient id="teal" x1="160" y1="190" x2="590" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#1C91B5"/><stop offset="1" stop-color="#5FC1BB"/></linearGradient>
  <linearGradient id="purple" x1="210" y1="265" x2="545" y2="485" gradientUnits="userSpaceOnUse"><stop stop-color="#7953B2"/><stop offset="1" stop-color="#B48DCB"/></linearGradient>
+
+<!-- The trail has a continuous translucent core and fades at the moving head/tail. -->
+<radialGradient id="wind-glow">
+ <stop stop-color="#F4AF2F" stop-opacity=".24"/>
+ <stop offset=".4" stop-color="#F4AF2F" stop-opacity=".10"/>
+ <stop offset="1" stop-color="#F4AF2F" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="trail-falloff">
+ <stop offset="0" stop-color="white"/>
+ <stop offset=".14" stop-color="white" stop-opacity=".96"/>
+ <stop offset=".48" stop-color="white" stop-opacity=".58"/>
+ <stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<mask id="moving-trail-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="600" style="mask-type:alpha">
+ <circle r="173" fill="url(#trail-falloff)">
+  <animateMotion path="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" keyPoints="0;.18;.38;.57;.78;1" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+ </circle>
+</mask>
 </defs>
-<path d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
-<path d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
-<path d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
-<path d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
-<path d="M544 160 C568 135 590 115 619 102" stroke="#A9D9DF" stroke-width="2" stroke-linecap="round"/>
-<circle cx="627" cy="98" r="4" fill="#F4AF2F"/><circle cx="568" cy="493" r="3" fill="#68BFC5"/>
+<style>
+/* Expressive Flight 2: wind-responsive staggered movement; exact V7 paths unchanged. */
+.feather{transform-box:view-box;animation:wind-feather 12s cubic-bezier(.42,0,.58,1) infinite}
+.feather--blue{transform-origin:173px 99px;animation-delay:0s}
+.feather--teal{transform-origin:167px 222px;animation-delay:-.28s}
+.feather--purple{transform-origin:209px 344px;animation-delay:-.56s}
+.feather--gold{transform-origin:292px 469px;animation-delay:-.84s}
+@keyframes wind-feather{
+  0%,100%{transform:rotate(0deg) translateY(0)}
+  12%{transform:rotate(-.6deg) translateY(-1px)}
+  27%{transform:rotate(2.8deg) translateY(-5px)}
+  44%{transform:rotate(.3deg) translateY(-1px)}
+  58%{transform:rotate(-.9deg) translateY(1px)}
+  72%{transform:rotate(2deg) translateY(-4px)}
+  87%{transform:rotate(.25deg) translateY(-1px)}
+}
+.wind-moving{display:inline}
+.wind-static{display:none}
+@media(prefers-reduced-motion:reduce){
+ .feather{animation:none!important;transform:none!important}
+ .wind-moving{display:none!important}
+ .wind-static{display:inline!important}
+}
+</style>
+<path class="feather feather--blue" d="M173 99 C240 205 366 218 486 182 C421 228 378 271 357 334 C322 287 255 258 215 207 C183 165 171 122 173 99Z" fill="url(#blue)"/>
+<path class="feather feather--teal" d="M167 222 C230 297 302 322 379 322 C446 321 508 287 550 243 C493 324 434 369 354 383 C271 394 208 335 167 222Z" fill="url(#teal)"/>
+<path class="feather feather--purple" d="M209 344 C296 405 381 406 453 373 C493 354 518 334 538 304 C521 379 483 423 428 444 C345 472 261 422 209 344Z" fill="url(#purple)"/>
+<path class="feather feather--gold" d="M292 469 C358 495 431 472 490 421 C463 480 419 513 371 525 C339 517 311 497 292 469Z" fill="#F4AF2F"/>
+
+<g class="wind-moving" aria-hidden="true">
+ <g mask="url(#moving-trail-mask)">
+  <!-- 125 normalized units of flowing, unbroken, trailing air current. -->
+  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#A2D3DE" stroke-opacity=".23" stroke-width="4.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
+   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+  </path>
+  <path d="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" pathLength="1000" stroke="#419CB8" stroke-opacity=".76" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="125 875" fill="none">
+   <animate attributeName="stroke-dashoffset" values="125;-55;-255;-445;-655;-875" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+  </path>
+ </g>
+ <g>
+  <circle r="16" fill="url(#wind-glow)"/>
+  <circle r="4.5" fill="#F4AF2F"/>
+  <circle r="1.2" fill="#FFF5D6" opacity=".85"/>
+  <animateMotion path="M617 113 C575 44 471 41 401 68 C308 28 213 61 156 120 C115 161 121 230 152 277 C126 325 145 414 223 465 C293 533 410 555 500 515 C601 473 663 384 640 315 C677 231 665 162 617 113 Z" keyPoints="0;.18;.38;.57;.78;1" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.18;.38;.57;.78;1" keySplines=".31 0 .65 1;.38 0 .59 1;.22 0 .68 1;.38 0 .62 1;.35 0 .65 1"/>
+ </g>
+</g>
+<g class="wind-static" aria-hidden="true">
+ <path d="M544 160 C568 135 590 115 619 102" stroke="#A9D9DF" stroke-width="2" stroke-linecap="round"/>
+ <circle cx="627" cy="98" r="4" fill="#F4AF2F"/>
+</g><circle cx="568" cy="493" r="3" fill="#68BFC5"/>
 </svg>
