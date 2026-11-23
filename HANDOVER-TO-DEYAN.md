@@ -67,3 +67,10 @@ The shared stylesheet `assets/get-involved.css` already has an aspect-ratio-safe
 
 ### Approved image deployment completed — 23 November 2026
 Commit `19e60c01cb1dd00fb55d53308b8ea5f80c83e8f7` on `main` added the four final compressed WebP image assets and updated the three Get Involved language pages and shared stylesheet to reference them. The previously listed PNG files remain in the repository but are no longer referenced by these sections. This supersedes the preceding pending-binary-upload note. Image dimensions remain 1600×800 (hero), 1200×984 (card sprite), 1800×600 (steps strip), and 1536×1024 (form photo). Image proportions are protected by `get-involved.css`. Cloudflare Pages build/deployment and live browser rendering still require confirmation before declaring full production verification. No official-domain/DNS changes were made.
+
+
+## Final approved mobile image and graphic steps update — 23 November 2026
+- All three Get Involved pages now use the same accessible, translated three-card HTML/SVG “How to join” graphic instead of the former photo strip. The former `get-involved-steps.webp` asset may remain in the repository as an unused asset; it is no longer referenced by these pages.
+- At viewport widths up to 700px, the four activity-card pictures display as **square 1:1 crops** with `background-size:auto 200%` on the shared 2×2 sprite, keeping the native image ratio rather than stretching. On desktop the pre-existing card image layout remains unchanged.
+- Keep the approved hero and pre-form photographic images and membership Google Form unchanged.
+- Source verification confirms the three pages have exactly three step cards each, no photo-strip image reference, shared stylesheet and the original registration form. Perform live viewport QA on Cloudflare deployment at 320px, 390px, 768px and desktop to confirm positioning, image crops and form usability.
