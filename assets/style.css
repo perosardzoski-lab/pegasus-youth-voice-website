@@ -684,3 +684,44 @@ img,svg,video{max-width:100%}
     object-fit:cover;
   }
 }
+
+
+/* Pegasus Youth Voice — modern, accessible contact icon tiles. */
+.contact-details .contact-detail{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(155deg,#fff 0%,#f7fbff 100%);
+  border:1px solid #dceaf2;border-radius:22px;
+  padding:25px;box-shadow:0 10px 26px rgba(17,75,115,.055);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.contact-details .contact-detail:before{
+  content:"";position:absolute;width:126px;height:126px;right:-62px;top:-62px;
+  border-radius:50%;background:var(--contact-glow,#e9f5ff);z-index:-1;
+  pointer-events:none;
+}
+.contact-detail--email{--contact-accent:#1767b2;--contact-glow:#e0f0ff;--contact-bg:linear-gradient(135deg,#0d5da0,#36a1dd)}
+.contact-detail--phone{--contact-accent:#087e88;--contact-glow:#dcfaf5;--contact-bg:linear-gradient(135deg,#07869e,#27bea9)}
+.contact-detail--web{--contact-accent:#7d4ab6;--contact-glow:#f0e5ff;--contact-bg:linear-gradient(135deg,#7057cd,#a46bd5)}
+.contact-detail--instagram{--contact-accent:#c34178;--contact-glow:#ffebf3;--contact-bg:linear-gradient(135deg,#6d51d6 0%,#c3419b 54%,#f5a548 100%)}
+.contact-detail--location{--contact-accent:#bd790e;--contact-glow:#fff3dd;--contact-bg:linear-gradient(135deg,#e4a12d,#f0be61)}
+.contact-details .contact-icon{
+  display:grid;place-items:center;flex:0 0 52px;
+  width:52px;height:52px;margin-bottom:18px;border-radius:16px;
+  background:var(--contact-bg);color:#fff;
+  box-shadow:0 7px 17px rgba(21,63,99,.13);
+}
+.contact-details .contact-icon svg{display:block;width:27px;height:27px;flex:none}
+.contact-details .contact-detail .mini{
+  color:var(--contact-accent,#0d5da0);font-size:12px;
+  letter-spacing:.075em;margin-bottom:10px;
+}
+.contact-details .contact-detail a{color:#0d5da0;font-weight:650}
+.contact-details .contact-detail a:focus-visible{outline:3px solid #0d88af;outline-offset:4px;border-radius:3px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .contact-details .contact-detail:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(17,75,115,.10);border-color:#badce9}
+}
+@media(max-width:700px){
+  .contact-details .contact-detail{padding:20px;border-radius:18px}
+  .contact-details .contact-icon{width:46px;height:46px;border-radius:14px;margin-bottom:13px}
+  .contact-details .contact-icon svg{width:24px;height:24px}
+}
